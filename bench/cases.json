@@ -1,0 +1,254 @@
+[
+ {
+  "state": {
+   "hunger": 95,
+   "energy": 60,
+   "curiosity": 20
+  },
+  "expected": [
+   "eat"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 90,
+   "energy": 70,
+   "curiosity": 40
+  },
+  "expected": [
+   "eat"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 85,
+   "energy": 55,
+   "curiosity": 10
+  },
+  "expected": [
+   "eat"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 100,
+   "energy": 65,
+   "curiosity": 30
+  },
+  "expected": [
+   "eat"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 88,
+   "energy": 80,
+   "curiosity": 20
+  },
+  "expected": [
+   "eat"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 92,
+   "energy": 50,
+   "curiosity": 50
+  },
+  "expected": [
+   "eat"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 10,
+   "energy": 5,
+   "curiosity": 40
+  },
+  "expected": [
+   "sleep",
+   "rest"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 15,
+   "energy": 10,
+   "curiosity": 20
+  },
+  "expected": [
+   "sleep",
+   "rest"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 5,
+   "energy": 8,
+   "curiosity": 10
+  },
+  "expected": [
+   "sleep",
+   "rest"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 20,
+   "energy": 3,
+   "curiosity": 30
+  },
+  "expected": [
+   "sleep",
+   "rest"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 12,
+   "energy": 15,
+   "curiosity": 25
+  },
+  "expected": [
+   "sleep",
+   "rest"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 8,
+   "energy": 12,
+   "curiosity": 50
+  },
+  "expected": [
+   "sleep",
+   "rest"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 15,
+   "energy": 30,
+   "curiosity": 20
+  },
+  "expected": [
+   "rest",
+   "sleep"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 10,
+   "energy": 35,
+   "curiosity": 10
+  },
+  "expected": [
+   "rest",
+   "sleep"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 20,
+   "energy": 25,
+   "curiosity": 30
+  },
+  "expected": [
+   "rest",
+   "sleep"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 5,
+   "energy": 38,
+   "curiosity": 15
+  },
+  "expected": [
+   "rest",
+   "sleep"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 18,
+   "energy": 28,
+   "curiosity": 25
+  },
+  "expected": [
+   "rest",
+   "sleep"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 12,
+   "energy": 33,
+   "curiosity": 5
+  },
+  "expected": [
+   "rest",
+   "sleep"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 10,
+   "energy": 90,
+   "curiosity": 95
+  },
+  "expected": [
+   "explore"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 15,
+   "energy": 80,
+   "curiosity": 85
+  },
+  "expected": [
+   "explore"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 20,
+   "energy": 85,
+   "curiosity": 90
+  },
+  "expected": [
+   "explore"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 5,
+   "energy": 95,
+   "curiosity": 80
+  },
+  "expected": [
+   "explore"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 12,
+   "energy": 75,
+   "curiosity": 100
+  },
+  "expected": [
+   "explore"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 18,
+   "energy": 88,
+   "curiosity": 70
+  },
+  "expected": [
+   "explore"
+  ]
+ }
+]

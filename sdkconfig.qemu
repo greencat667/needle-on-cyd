@@ -1,0 +1,6 @@
+# QEMU overlay: SD card through the SDMMC host (QEMU emulates it; the CYD
+# wires its slot to SPI), no display or touch, benchmark self-test at boot.
+CONFIG_NEEDLE_SD_SDMMC=y
+CONFIG_NEEDLE_HEADLESS=y
+CONFIG_NEEDLE_SELFTEST=y
+CONFIG_ESPTOOLPY_FLASHMODE_DIO=y

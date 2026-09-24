@@ -1,0 +1,207 @@
+[
+ {
+  "model": "needle3-L2-creature-bal.cact",
+  "template": "words",
+  "runner": "port",
+  "accuracy": 1.0,
+  "correct": 24,
+  "n": 24,
+  "mean_conf": 0.9999791666666668,
+  "mean_latency_s": 0.9035668472448984,
+  "peak_mem_mb": 0.298424,
+  "rows": [
+   {
+    "text": "I'm starving, rested and bored.",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.9999,
+    "correct": true
+   },
+   {
+    "text": "I'm starving, rested and a bit curious.",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.9999,
+    "correct": true
+   },
+   {
+    "text": "I'm starving, rested and bored.",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.9999,
+    "correct": true
+   },
+   {
+    "text": "I'm starving, rested and bored.",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.9999,
+    "correct": true
+   },
+   {
+    "text": "I'm starving, full of energy and bored.",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 1.0,
+    "correct": true
+   },
+   {
+    "text": "I'm starving, rested and a bit curious.",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.9999,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, exhausted and a bit curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, exhausted and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, exhausted and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, exhausted and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, exhausted and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, exhausted and a bit curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 1.0,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 1.0,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 1.0,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 1.0,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 1.0,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 1.0,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "explore"
+    ],
+    "confidence": 1.0,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "explore"
+    ],
+    "confidence": 1.0,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "explore"
+    ],
+    "confidence": 1.0,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "explore"
+    ],
+    "confidence": 1.0,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "explore"
+    ],
+    "confidence": 1.0,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "explore"
+    ],
+    "confidence": 1.0,
+    "correct": true
+   }
+  ]
+ }
+]

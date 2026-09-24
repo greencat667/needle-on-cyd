@@ -1,0 +1,6 @@
+[
+  {"name": "eat", "description": "Eat food when hungry.", "parameters": {"type": "object", "properties": {}, "required": []}},
+  {"name": "sleep", "description": "Sleep when tired.", "parameters": {"type": "object", "properties": {}, "required": []}},
+  {"name": "explore", "description": "Explore when curious and energetic.", "parameters": {"type": "object", "properties": {}, "required": []}},
+  {"name": "rest", "description": "Rest when energy is low.", "parameters": {"type": "object", "properties": {}, "required": []}}
+]

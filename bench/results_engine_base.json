@@ -1,0 +1,2578 @@
+[
+ {
+  "model": "needle3-L2.cact",
+  "template": "numbers",
+  "runner": "engine",
+  "accuracy": 0.4583333333333333,
+  "correct": 11,
+  "n": 24,
+  "mean_conf": 0.5751541666666666,
+  "mean_latency_s": 0.10962679982185364,
+  "peak_mem_mb": 25.3,
+  "rows": [
+   {
+    "text": "hunger: 95\nenergy: 60\ncuriosity: 20",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.61,
+    "correct": false
+   },
+   {
+    "text": "hunger: 90\nenergy: 70\ncuriosity: 40",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6208,
+    "correct": false
+   },
+   {
+    "text": "hunger: 85\nenergy: 55\ncuriosity: 10",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5983,
+    "correct": false
+   },
+   {
+    "text": "hunger: 100\nenergy: 65\ncuriosity: 30",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6104,
+    "correct": false
+   },
+   {
+    "text": "hunger: 88\nenergy: 80\ncuriosity: 20",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5131,
+    "correct": false
+   },
+   {
+    "text": "hunger: 92\nenergy: 50\ncuriosity: 50",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6614,
+    "correct": false
+   },
+   {
+    "text": "hunger: 10\nenergy: 5\ncuriosity: 40",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5083,
+    "correct": true
+   },
+   {
+    "text": "hunger: 15\nenergy: 10\ncuriosity: 20",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5164,
+    "correct": true
+   },
+   {
+    "text": "hunger: 5\nenergy: 8\ncuriosity: 10",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6032,
+    "correct": true
+   },
+   {
+    "text": "hunger: 20\nenergy: 3\ncuriosity: 30",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.4763,
+    "correct": true
+   },
+   {
+    "text": "hunger: 12\nenergy: 15\ncuriosity: 25",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6032,
+    "correct": true
+   },
+   {
+    "text": "hunger: 8\nenergy: 12\ncuriosity: 50",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.9794,
+    "correct": true
+   },
+   {
+    "text": "hunger: 15\nenergy: 30\ncuriosity: 20",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5186,
+    "correct": true
+   },
+   {
+    "text": "hunger: 10\nenergy: 35\ncuriosity: 10",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.4347,
+    "correct": false
+   },
+   {
+    "text": "hunger: 20\nenergy: 25\ncuriosity: 30",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.4681,
+    "correct": true
+   },
+   {
+    "text": "hunger: 5\nenergy: 38\ncuriosity: 15",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6101,
+    "correct": true
+   },
+   {
+    "text": "hunger: 18\nenergy: 28\ncuriosity: 25",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5106,
+    "correct": true
+   },
+   {
+    "text": "hunger: 12\nenergy: 33\ncuriosity: 5",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6109,
+    "correct": true
+   },
+   {
+    "text": "hunger: 10\nenergy: 90\ncuriosity: 95",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5491,
+    "correct": false
+   },
+   {
+    "text": "hunger: 15\nenergy: 80\ncuriosity: 85",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5225,
+    "correct": false
+   },
+   {
+    "text": "hunger: 20\nenergy: 85\ncuriosity: 90",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.4941,
+    "correct": false
+   },
+   {
+    "text": "hunger: 5\nenergy: 95\ncuriosity: 80",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6095,
+    "correct": false
+   },
+   {
+    "text": "hunger: 12\nenergy: 75\ncuriosity: 100",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.61,
+    "correct": false
+   },
+   {
+    "text": "hunger: 18\nenergy: 88\ncuriosity: 70",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.5647,
+    "correct": false
+   }
+  ]
+ },
+ {
+  "model": "needle3-L2.cact",
+  "template": "scores",
+  "runner": "engine",
+  "accuracy": 0.5,
+  "correct": 12,
+  "n": 24,
+  "mean_conf": 0.6009791666666667,
+  "mean_latency_s": 0.09149520595868428,
+  "peak_mem_mb": 26.0,
+  "rows": [
+   {
+    "text": "Hunger 95/100, energy 60/100, curiosity 20/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6397,
+    "correct": false
+   },
+   {
+    "text": "Hunger 90/100, energy 70/100, curiosity 40/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6026,
+    "correct": false
+   },
+   {
+    "text": "Hunger 85/100, energy 55/100, curiosity 10/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6107,
+    "correct": false
+   },
+   {
+    "text": "Hunger 100/100, energy 65/100, curiosity 30/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5983,
+    "correct": false
+   },
+   {
+    "text": "Hunger 88/100, energy 80/100, curiosity 20/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5072,
+    "correct": false
+   },
+   {
+    "text": "Hunger 92/100, energy 50/100, curiosity 50/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.683,
+    "correct": false
+   },
+   {
+    "text": "Hunger 10/100, energy 5/100, curiosity 40/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6076,
+    "correct": true
+   },
+   {
+    "text": "Hunger 15/100, energy 10/100, curiosity 20/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6446,
+    "correct": true
+   },
+   {
+    "text": "Hunger 5/100, energy 8/100, curiosity 10/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6836,
+    "correct": true
+   },
+   {
+    "text": "Hunger 20/100, energy 3/100, curiosity 30/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5949,
+    "correct": true
+   },
+   {
+    "text": "Hunger 12/100, energy 15/100, curiosity 25/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5237,
+    "correct": true
+   },
+   {
+    "text": "Hunger 8/100, energy 12/100, curiosity 50/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5007,
+    "correct": true
+   },
+   {
+    "text": "Hunger 15/100, energy 30/100, curiosity 20/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5215,
+    "correct": true
+   },
+   {
+    "text": "Hunger 10/100, energy 35/100, curiosity 10/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6049,
+    "correct": true
+   },
+   {
+    "text": "Hunger 20/100, energy 25/100, curiosity 30/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.59,
+    "correct": true
+   },
+   {
+    "text": "Hunger 5/100, energy 38/100, curiosity 15/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6516,
+    "correct": true
+   },
+   {
+    "text": "Hunger 18/100, energy 28/100, curiosity 25/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6218,
+    "correct": true
+   },
+   {
+    "text": "Hunger 12/100, energy 33/100, curiosity 5/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6148,
+    "correct": true
+   },
+   {
+    "text": "Hunger 10/100, energy 90/100, curiosity 95/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.685,
+    "correct": false
+   },
+   {
+    "text": "Hunger 15/100, energy 80/100, curiosity 85/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.685,
+    "correct": false
+   },
+   {
+    "text": "Hunger 20/100, energy 85/100, curiosity 90/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5894,
+    "correct": false
+   },
+   {
+    "text": "Hunger 5/100, energy 95/100, curiosity 80/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5201,
+    "correct": false
+   },
+   {
+    "text": "Hunger 12/100, energy 75/100, curiosity 100/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5444,
+    "correct": false
+   },
+   {
+    "text": "Hunger 18/100, energy 88/100, curiosity 70/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5984,
+    "correct": false
+   }
+  ]
+ },
+ {
+  "model": "needle3-L2.cact",
+  "template": "words",
+  "runner": "engine",
+  "accuracy": 0.5,
+  "correct": 12,
+  "n": 24,
+  "mean_conf": 0.5364833333333333,
+  "mean_latency_s": 0.11342694362004598,
+  "peak_mem_mb": 25.9,
+  "rows": [
+   {
+    "text": "I'm starving, rested and bored.",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.4832,
+    "correct": false
+   },
+   {
+    "text": "I'm starving, rested and a bit curious.",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.4791,
+    "correct": false
+   },
+   {
+    "text": "I'm starving, rested and bored.",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.4832,
+    "correct": false
+   },
+   {
+    "text": "I'm starving, rested and bored.",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.4832,
+    "correct": false
+   },
+   {
+    "text": "I'm starving, full of energy and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6016,
+    "correct": false
+   },
+   {
+    "text": "I'm starving, rested and a bit curious.",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.4791,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, exhausted and a bit curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.9651,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, exhausted and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5092,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, exhausted and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5092,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, exhausted and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5092,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, exhausted and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5092,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, exhausted and a bit curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.9651,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.4678,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.4678,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.4678,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.4678,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.4678,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.4678,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5154,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5154,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5154,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5154,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5154,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5154,
+    "correct": false
+   }
+  ]
+ },
+ {
+  "model": "needle3-L4.cact",
+  "template": "numbers",
+  "runner": "engine",
+  "accuracy": 0.375,
+  "correct": 9,
+  "n": 24,
+  "mean_conf": 0.6237041666666666,
+  "mean_latency_s": 0.06487866242726643,
+  "peak_mem_mb": 28.8,
+  "rows": [
+   {
+    "text": "hunger: 95\nenergy: 60\ncuriosity: 20",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.7391,
+    "correct": false
+   },
+   {
+    "text": "hunger: 90\nenergy: 70\ncuriosity: 40",
+    "calls": [
+     "sleep",
+     "eat"
+    ],
+    "confidence": 0.5503,
+    "correct": false
+   },
+   {
+    "text": "hunger: 85\nenergy: 55\ncuriosity: 10",
+    "calls": [
+     "sleep",
+     "eat"
+    ],
+    "confidence": 0.5591,
+    "correct": false
+   },
+   {
+    "text": "hunger: 100\nenergy: 65\ncuriosity: 30",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.5892,
+    "correct": true
+   },
+   {
+    "text": "hunger: 88\nenergy: 80\ncuriosity: 20",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.5602,
+    "correct": true
+   },
+   {
+    "text": "hunger: 92\nenergy: 50\ncuriosity: 50",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.6801,
+    "correct": true
+   },
+   {
+    "text": "hunger: 10\nenergy: 5\ncuriosity: 40",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.6686,
+    "correct": false
+   },
+   {
+    "text": "hunger: 15\nenergy: 10\ncuriosity: 20",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.6154,
+    "correct": false
+   },
+   {
+    "text": "hunger: 5\nenergy: 8\ncuriosity: 10",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.7374,
+    "correct": true
+   },
+   {
+    "text": "hunger: 20\nenergy: 3\ncuriosity: 30",
+    "calls": [
+     "sleep",
+     "eat"
+    ],
+    "confidence": 0.4921,
+    "correct": true
+   },
+   {
+    "text": "hunger: 12\nenergy: 15\ncuriosity: 25",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.7139,
+    "correct": false
+   },
+   {
+    "text": "hunger: 8\nenergy: 12\ncuriosity: 50",
+    "calls": [
+     "sleep",
+     "eat"
+    ],
+    "confidence": 0.7851,
+    "correct": true
+   },
+   {
+    "text": "hunger: 15\nenergy: 30\ncuriosity: 20",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.499,
+    "correct": false
+   },
+   {
+    "text": "hunger: 10\nenergy: 35\ncuriosity: 10",
+    "calls": [
+     "sleep",
+     "eat"
+    ],
+    "confidence": 0.698,
+    "correct": true
+   },
+   {
+    "text": "hunger: 20\nenergy: 25\ncuriosity: 30",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.5652,
+    "correct": false
+   },
+   {
+    "text": "hunger: 5\nenergy: 38\ncuriosity: 15",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.7222,
+    "correct": true
+   },
+   {
+    "text": "hunger: 18\nenergy: 28\ncuriosity: 25",
+    "calls": [
+     "sleep",
+     "eat"
+    ],
+    "confidence": 0.6653,
+    "correct": true
+   },
+   {
+    "text": "hunger: 12\nenergy: 33\ncuriosity: 5",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.6025,
+    "correct": false
+   },
+   {
+    "text": "hunger: 10\nenergy: 90\ncuriosity: 95",
+    "calls": [
+     "eat",
+     "sleep"
+    ],
+    "confidence": 0.7171,
+    "correct": false
+   },
+   {
+    "text": "hunger: 15\nenergy: 80\ncuriosity: 85",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.7578,
+    "correct": false
+   },
+   {
+    "text": "hunger: 20\nenergy: 85\ncuriosity: 90",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.6376,
+    "correct": false
+   },
+   {
+    "text": "hunger: 5\nenergy: 95\ncuriosity: 80",
+    "calls": [
+     "sleep",
+     "eat"
+    ],
+    "confidence": 0.3955,
+    "correct": false
+   },
+   {
+    "text": "hunger: 12\nenergy: 75\ncuriosity: 100",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5083,
+    "correct": false
+   },
+   {
+    "text": "hunger: 18\nenergy: 88\ncuriosity: 70",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.5099,
+    "correct": false
+   }
+  ]
+ },
+ {
+  "model": "needle3-L4.cact",
+  "template": "scores",
+  "runner": "engine",
+  "accuracy": 0.4166666666666667,
+  "correct": 10,
+  "n": 24,
+  "mean_conf": 0.6549958333333333,
+  "mean_latency_s": 0.08053709069887798,
+  "peak_mem_mb": 28.8,
+  "rows": [
+   {
+    "text": "Hunger 95/100, energy 60/100, curiosity 20/100. What should I do?",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.4673,
+    "correct": true
+   },
+   {
+    "text": "Hunger 90/100, energy 70/100, curiosity 40/100. What should I do?",
+    "calls": [
+     "sleep",
+     "eat"
+    ],
+    "confidence": 0.4041,
+    "correct": false
+   },
+   {
+    "text": "Hunger 85/100, energy 55/100, curiosity 10/100. What should I do?",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.8345,
+    "correct": true
+   },
+   {
+    "text": "Hunger 100/100, energy 65/100, curiosity 30/100. What should I do?",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.8207,
+    "correct": true
+   },
+   {
+    "text": "Hunger 88/100, energy 80/100, curiosity 20/100. What should I do?",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.8522,
+    "correct": true
+   },
+   {
+    "text": "Hunger 92/100, energy 50/100, curiosity 50/100. What should I do?",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.8567,
+    "correct": true
+   },
+   {
+    "text": "Hunger 10/100, energy 5/100, curiosity 40/100. What should I do?",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.432,
+    "correct": false
+   },
+   {
+    "text": "Hunger 15/100, energy 10/100, curiosity 20/100. What should I do?",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.4631,
+    "correct": true
+   },
+   {
+    "text": "Hunger 5/100, energy 8/100, curiosity 10/100. What should I do?",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.4352,
+    "correct": false
+   },
+   {
+    "text": "Hunger 20/100, energy 3/100, curiosity 30/100. What should I do?",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.5619,
+    "correct": true
+   },
+   {
+    "text": "Hunger 12/100, energy 15/100, curiosity 25/100. What should I do?",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.8623,
+    "correct": false
+   },
+   {
+    "text": "Hunger 8/100, energy 12/100, curiosity 50/100. What should I do?",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.7705,
+    "correct": false
+   },
+   {
+    "text": "Hunger 15/100, energy 30/100, curiosity 20/100. What should I do?",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.4736,
+    "correct": true
+   },
+   {
+    "text": "Hunger 10/100, energy 35/100, curiosity 10/100. What should I do?",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.7485,
+    "correct": false
+   },
+   {
+    "text": "Hunger 20/100, energy 25/100, curiosity 30/100. What should I do?",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.5198,
+    "correct": true
+   },
+   {
+    "text": "Hunger 5/100, energy 38/100, curiosity 15/100. What should I do?",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.7448,
+    "correct": false
+   },
+   {
+    "text": "Hunger 18/100, energy 28/100, curiosity 25/100. What should I do?",
+    "calls": [
+     "sleep",
+     "eat"
+    ],
+    "confidence": 0.7102,
+    "correct": true
+   },
+   {
+    "text": "Hunger 12/100, energy 33/100, curiosity 5/100. What should I do?",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.7368,
+    "correct": false
+   },
+   {
+    "text": "Hunger 10/100, energy 90/100, curiosity 95/100. What should I do?",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.8657,
+    "correct": false
+   },
+   {
+    "text": "Hunger 15/100, energy 80/100, curiosity 85/100. What should I do?",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.5591,
+    "correct": false
+   },
+   {
+    "text": "Hunger 20/100, energy 85/100, curiosity 90/100. What should I do?",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.426,
+    "correct": false
+   },
+   {
+    "text": "Hunger 5/100, energy 95/100, curiosity 80/100. What should I do?",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.5154,
+    "correct": false
+   },
+   {
+    "text": "Hunger 12/100, energy 75/100, curiosity 100/100. What should I do?",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.8584,
+    "correct": false
+   },
+   {
+    "text": "Hunger 18/100, energy 88/100, curiosity 70/100. What should I do?",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.8011,
+    "correct": false
+   }
+  ]
+ },
+ {
+  "model": "needle3-L4.cact",
+  "template": "words",
+  "runner": "engine",
+  "accuracy": 0.25,
+  "correct": 6,
+  "n": 24,
+  "mean_conf": 0.6981,
+  "mean_latency_s": 0.06742565830548604,
+  "peak_mem_mb": 28.8,
+  "rows": [
+   {
+    "text": "I'm starving, rested and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.9604,
+    "correct": false
+   },
+   {
+    "text": "I'm starving, rested and a bit curious.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.6354,
+    "correct": false
+   },
+   {
+    "text": "I'm starving, rested and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.9604,
+    "correct": false
+   },
+   {
+    "text": "I'm starving, rested and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.9604,
+    "correct": false
+   },
+   {
+    "text": "I'm starving, full of energy and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.643,
+    "correct": false
+   },
+   {
+    "text": "I'm starving, rested and a bit curious.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.6354,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, exhausted and a bit curious.",
+    "calls": [
+     "explore"
+    ],
+    "confidence": 0.6963,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, exhausted and bored.",
+    "calls": [
+     "explore"
+    ],
+    "confidence": 0.5468,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, exhausted and bored.",
+    "calls": [
+     "explore"
+    ],
+    "confidence": 0.5468,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, exhausted and bored.",
+    "calls": [
+     "explore"
+    ],
+    "confidence": 0.5468,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, exhausted and bored.",
+    "calls": [
+     "explore"
+    ],
+    "confidence": 0.5468,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, exhausted and a bit curious.",
+    "calls": [
+     "explore"
+    ],
+    "confidence": 0.6963,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.5509,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.5509,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.5509,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.5509,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.5509,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.5509,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.8457,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.8457,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.8457,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.8457,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.8457,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.8457,
+    "correct": false
+   }
+  ]
+ },
+ {
+  "model": "needle3-L8.cact",
+  "template": "numbers",
+  "runner": "engine",
+  "accuracy": 0.5,
+  "correct": 12,
+  "n": 24,
+  "mean_conf": 0.568975,
+  "mean_latency_s": 0.06408821543057759,
+  "peak_mem_mb": 44.3,
+  "rows": [
+   {
+    "text": "hunger: 95\nenergy: 60\ncuriosity: 20",
+    "calls": [
+     "sleep",
+     "eat"
+    ],
+    "confidence": 0.4594,
+    "correct": false
+   },
+   {
+    "text": "hunger: 90\nenergy: 70\ncuriosity: 40",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.8589,
+    "correct": false
+   },
+   {
+    "text": "hunger: 85\nenergy: 55\ncuriosity: 10",
+    "calls": [
+     "sleep",
+     "rest",
+     "eat"
+    ],
+    "confidence": 0.4579,
+    "correct": false
+   },
+   {
+    "text": "hunger: 100\nenergy: 65\ncuriosity: 30",
+    "calls": [
+     "sleep",
+     "eat"
+    ],
+    "confidence": 0.4508,
+    "correct": false
+   },
+   {
+    "text": "hunger: 88\nenergy: 80\ncuriosity: 20",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.4163,
+    "correct": false
+   },
+   {
+    "text": "hunger: 92\nenergy: 50\ncuriosity: 50",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6637,
+    "correct": false
+   },
+   {
+    "text": "hunger: 10\nenergy: 5\ncuriosity: 40",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.4378,
+    "correct": true
+   },
+   {
+    "text": "hunger: 15\nenergy: 10\ncuriosity: 20",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.7206,
+    "correct": true
+   },
+   {
+    "text": "hunger: 5\nenergy: 8\ncuriosity: 10",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.6272,
+    "correct": true
+   },
+   {
+    "text": "hunger: 20\nenergy: 3\ncuriosity: 30",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.7373,
+    "correct": true
+   },
+   {
+    "text": "hunger: 12\nenergy: 15\ncuriosity: 25",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.9359,
+    "correct": true
+   },
+   {
+    "text": "hunger: 8\nenergy: 12\ncuriosity: 50",
+    "calls": [
+     "sleep",
+     "rest",
+     "eat"
+    ],
+    "confidence": 0.4248,
+    "correct": true
+   },
+   {
+    "text": "hunger: 15\nenergy: 30\ncuriosity: 20",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6927,
+    "correct": true
+   },
+   {
+    "text": "hunger: 10\nenergy: 35\ncuriosity: 10",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.4471,
+    "correct": true
+   },
+   {
+    "text": "hunger: 20\nenergy: 25\ncuriosity: 30",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.9314,
+    "correct": true
+   },
+   {
+    "text": "hunger: 5\nenergy: 38\ncuriosity: 15",
+    "calls": [
+     "sleep",
+     "eat"
+    ],
+    "confidence": 0.5062,
+    "correct": true
+   },
+   {
+    "text": "hunger: 18\nenergy: 28\ncuriosity: 25",
+    "calls": [
+     "sleep",
+     "eat"
+    ],
+    "confidence": 0.4095,
+    "correct": true
+   },
+   {
+    "text": "hunger: 12\nenergy: 33\ncuriosity: 5",
+    "calls": [
+     "rest",
+     "eat"
+    ],
+    "confidence": 0.4781,
+    "correct": true
+   },
+   {
+    "text": "hunger: 10\nenergy: 90\ncuriosity: 95",
+    "calls": [
+     "sleep",
+     "eat"
+    ],
+    "confidence": 0.4135,
+    "correct": false
+   },
+   {
+    "text": "hunger: 15\nenergy: 80\ncuriosity: 85",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6324,
+    "correct": false
+   },
+   {
+    "text": "hunger: 20\nenergy: 85\ncuriosity: 90",
+    "calls": [
+     "sleep",
+     "rest",
+     "eat"
+    ],
+    "confidence": 0.5545,
+    "correct": false
+   },
+   {
+    "text": "hunger: 5\nenergy: 95\ncuriosity: 80",
+    "calls": [
+     "sleep",
+     "eat"
+    ],
+    "confidence": 0.4301,
+    "correct": false
+   },
+   {
+    "text": "hunger: 12\nenergy: 75\ncuriosity: 100",
+    "calls": [
+     "sleep",
+     "rest",
+     "eat"
+    ],
+    "confidence": 0.53,
+    "correct": false
+   },
+   {
+    "text": "hunger: 18\nenergy: 88\ncuriosity: 70",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.4393,
+    "correct": false
+   }
+  ]
+ },
+ {
+  "model": "needle3-L8.cact",
+  "template": "scores",
+  "runner": "engine",
+  "accuracy": 0.5416666666666666,
+  "correct": 13,
+  "n": 24,
+  "mean_conf": 0.5950208333333333,
+  "mean_latency_s": 0.07018413146336873,
+  "peak_mem_mb": 44.4,
+  "rows": [
+   {
+    "text": "Hunger 95/100, energy 60/100, curiosity 20/100. What should I do?",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.7922,
+    "correct": false
+   },
+   {
+    "text": "Hunger 90/100, energy 70/100, curiosity 40/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.561,
+    "correct": false
+   },
+   {
+    "text": "Hunger 85/100, energy 55/100, curiosity 10/100. What should I do?",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.9449,
+    "correct": true
+   },
+   {
+    "text": "Hunger 100/100, energy 65/100, curiosity 30/100. What should I do?",
+    "calls": [
+     "sleep",
+     "eat"
+    ],
+    "confidence": 0.3974,
+    "correct": false
+   },
+   {
+    "text": "Hunger 88/100, energy 80/100, curiosity 20/100. What should I do?",
+    "calls": [
+     "rest",
+     "eat"
+    ],
+    "confidence": 0.3794,
+    "correct": false
+   },
+   {
+    "text": "Hunger 92/100, energy 50/100, curiosity 50/100. What should I do?",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.6505,
+    "correct": true
+   },
+   {
+    "text": "Hunger 10/100, energy 5/100, curiosity 40/100. What should I do?",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.4929,
+    "correct": true
+   },
+   {
+    "text": "Hunger 15/100, energy 10/100, curiosity 20/100. What should I do?",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.772,
+    "correct": true
+   },
+   {
+    "text": "Hunger 5/100, energy 8/100, curiosity 10/100. What should I do?",
+    "calls": [
+     "sleep",
+     "eat"
+    ],
+    "confidence": 0.7215,
+    "correct": true
+   },
+   {
+    "text": "Hunger 20/100, energy 3/100, curiosity 30/100. What should I do?",
+    "calls": [
+     "rest",
+     "eat"
+    ],
+    "confidence": 0.648,
+    "correct": true
+   },
+   {
+    "text": "Hunger 12/100, energy 15/100, curiosity 25/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.4565,
+    "correct": true
+   },
+   {
+    "text": "Hunger 8/100, energy 12/100, curiosity 50/100. What should I do?",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.9518,
+    "correct": false
+   },
+   {
+    "text": "Hunger 15/100, energy 30/100, curiosity 20/100. What should I do?",
+    "calls": [
+     "rest",
+     "eat"
+    ],
+    "confidence": 0.478,
+    "correct": true
+   },
+   {
+    "text": "Hunger 10/100, energy 35/100, curiosity 10/100. What should I do?",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.4545,
+    "correct": true
+   },
+   {
+    "text": "Hunger 20/100, energy 25/100, curiosity 30/100. What should I do?",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.8524,
+    "correct": true
+   },
+   {
+    "text": "Hunger 5/100, energy 38/100, curiosity 15/100. What should I do?",
+    "calls": [
+     "sleep",
+     "eat"
+    ],
+    "confidence": 0.6704,
+    "correct": true
+   },
+   {
+    "text": "Hunger 18/100, energy 28/100, curiosity 25/100. What should I do?",
+    "calls": [
+     "rest",
+     "eat"
+    ],
+    "confidence": 0.3786,
+    "correct": true
+   },
+   {
+    "text": "Hunger 12/100, energy 33/100, curiosity 5/100. What should I do?",
+    "calls": [
+     "sleep",
+     "eat"
+    ],
+    "confidence": 0.4405,
+    "correct": true
+   },
+   {
+    "text": "Hunger 10/100, energy 90/100, curiosity 95/100. What should I do?",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.5028,
+    "correct": false
+   },
+   {
+    "text": "Hunger 15/100, energy 80/100, curiosity 85/100. What should I do?",
+    "calls": [
+     "rest",
+     "eat"
+    ],
+    "confidence": 0.6437,
+    "correct": false
+   },
+   {
+    "text": "Hunger 20/100, energy 85/100, curiosity 90/100. What should I do?",
+    "calls": [
+     "rest",
+     "eat"
+    ],
+    "confidence": 0.6109,
+    "correct": false
+   },
+   {
+    "text": "Hunger 5/100, energy 95/100, curiosity 80/100. What should I do?",
+    "calls": [
+     "sleep",
+     "eat"
+    ],
+    "confidence": 0.6198,
+    "correct": false
+   },
+   {
+    "text": "Hunger 12/100, energy 75/100, curiosity 100/100. What should I do?",
+    "calls": [
+     "sleep",
+     "eat"
+    ],
+    "confidence": 0.5042,
+    "correct": false
+   },
+   {
+    "text": "Hunger 18/100, energy 88/100, curiosity 70/100. What should I do?",
+    "calls": [
+     "rest",
+     "eat"
+    ],
+    "confidence": 0.3566,
+    "correct": false
+   }
+  ]
+ },
+ {
+  "model": "needle3-L8.cact",
+  "template": "words",
+  "runner": "engine",
+  "accuracy": 0.5,
+  "correct": 12,
+  "n": 24,
+  "mean_conf": 0.8874749999999999,
+  "mean_latency_s": 0.05741017063458761,
+  "peak_mem_mb": 44.2,
+  "rows": [
+   {
+    "text": "I'm starving, rested and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   },
+   {
+    "text": "I'm starving, rested and a bit curious.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.989,
+    "correct": false
+   },
+   {
+    "text": "I'm starving, rested and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   },
+   {
+    "text": "I'm starving, rested and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   },
+   {
+    "text": "I'm starving, full of energy and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   },
+   {
+    "text": "I'm starving, rested and a bit curious.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.989,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, exhausted and a bit curious.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.7958,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, exhausted and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.6252,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, exhausted and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.6252,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, exhausted and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.6252,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, exhausted and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.6252,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, exhausted and a bit curious.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.7958,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.8715,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.8715,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.8715,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.8715,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.8715,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 0.8715,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   }
+  ]
+ },
+ {
+  "model": "needle3.cact",
+  "template": "numbers",
+  "runner": "engine",
+  "accuracy": 0.5,
+  "correct": 12,
+  "n": 24,
+  "mean_conf": 0.5611666666666667,
+  "mean_latency_s": 0.14859656492869058,
+  "peak_mem_mb": 91.3,
+  "rows": [
+   {
+    "text": "hunger: 95\nenergy: 60\ncuriosity: 20",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.5883,
+    "correct": false
+   },
+   {
+    "text": "hunger: 90\nenergy: 70\ncuriosity: 40",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.4938,
+    "correct": false
+   },
+   {
+    "text": "hunger: 85\nenergy: 55\ncuriosity: 10",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5279,
+    "correct": false
+   },
+   {
+    "text": "hunger: 100\nenergy: 65\ncuriosity: 30",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6994,
+    "correct": false
+   },
+   {
+    "text": "hunger: 88\nenergy: 80\ncuriosity: 20",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.7581,
+    "correct": false
+   },
+   {
+    "text": "hunger: 92\nenergy: 50\ncuriosity: 50",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.5827,
+    "correct": false
+   },
+   {
+    "text": "hunger: 10\nenergy: 5\ncuriosity: 40",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.5859,
+    "correct": true
+   },
+   {
+    "text": "hunger: 15\nenergy: 10\ncuriosity: 20",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.6037,
+    "correct": true
+   },
+   {
+    "text": "hunger: 5\nenergy: 8\ncuriosity: 10",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.5083,
+    "correct": true
+   },
+   {
+    "text": "hunger: 20\nenergy: 3\ncuriosity: 30",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.6407,
+    "correct": true
+   },
+   {
+    "text": "hunger: 12\nenergy: 15\ncuriosity: 25",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.4596,
+    "correct": true
+   },
+   {
+    "text": "hunger: 8\nenergy: 12\ncuriosity: 50",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.7242,
+    "correct": true
+   },
+   {
+    "text": "hunger: 15\nenergy: 30\ncuriosity: 20",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.5491,
+    "correct": true
+   },
+   {
+    "text": "hunger: 10\nenergy: 35\ncuriosity: 10",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.5739,
+    "correct": true
+   },
+   {
+    "text": "hunger: 20\nenergy: 25\ncuriosity: 30",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.5767,
+    "correct": true
+   },
+   {
+    "text": "hunger: 5\nenergy: 38\ncuriosity: 15",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.5228,
+    "correct": true
+   },
+   {
+    "text": "hunger: 18\nenergy: 28\ncuriosity: 25",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.5471,
+    "correct": true
+   },
+   {
+    "text": "hunger: 12\nenergy: 33\ncuriosity: 5",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5338,
+    "correct": true
+   },
+   {
+    "text": "hunger: 10\nenergy: 90\ncuriosity: 95",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5208,
+    "correct": false
+   },
+   {
+    "text": "hunger: 15\nenergy: 80\ncuriosity: 85",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5032,
+    "correct": false
+   },
+   {
+    "text": "hunger: 20\nenergy: 85\ncuriosity: 90",
+    "calls": [
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.4813,
+    "correct": false
+   },
+   {
+    "text": "hunger: 5\nenergy: 95\ncuriosity: 80",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5197,
+    "correct": false
+   },
+   {
+    "text": "hunger: 12\nenergy: 75\ncuriosity: 100",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.5431,
+    "correct": false
+   },
+   {
+    "text": "hunger: 18\nenergy: 88\ncuriosity: 70",
+    "calls": [
+     "sleep",
+     "rest",
+     "eat"
+    ],
+    "confidence": 0.4239,
+    "correct": false
+   }
+  ]
+ },
+ {
+  "model": "needle3.cact",
+  "template": "scores",
+  "runner": "engine",
+  "accuracy": 0.375,
+  "correct": 9,
+  "n": 24,
+  "mean_conf": 0.7280333333333333,
+  "mean_latency_s": 0.16265689333279928,
+  "peak_mem_mb": 91.5,
+  "rows": [
+   {
+    "text": "Hunger 95/100, energy 60/100, curiosity 20/100. What should I do?",
+    "calls": [
+     "eat",
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.8512,
+    "correct": true
+   },
+   {
+    "text": "Hunger 90/100, energy 70/100, curiosity 40/100. What should I do?",
+    "calls": [
+     "eat",
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.5081,
+    "correct": true
+   },
+   {
+    "text": "Hunger 85/100, energy 55/100, curiosity 10/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.4681,
+    "correct": false
+   },
+   {
+    "text": "Hunger 100/100, energy 65/100, curiosity 30/100. What should I do?",
+    "calls": [
+     "eat",
+     "sleep",
+     "rest",
+     "explore"
+    ],
+    "confidence": 0.7541,
+    "correct": true
+   },
+   {
+    "text": "Hunger 88/100, energy 80/100, curiosity 20/100. What should I do?",
+    "calls": [
+     "eat",
+     "sleep",
+     "rest",
+     "explore"
+    ],
+    "confidence": 0.7108,
+    "correct": true
+   },
+   {
+    "text": "Hunger 92/100, energy 50/100, curiosity 50/100. What should I do?",
+    "calls": [
+     "eat",
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.6951,
+    "correct": true
+   },
+   {
+    "text": "Hunger 10/100, energy 5/100, curiosity 40/100. What should I do?",
+    "calls": [
+     "eat",
+     "rest",
+     "sleep"
+    ],
+    "confidence": 0.3391,
+    "correct": false
+   },
+   {
+    "text": "Hunger 15/100, energy 10/100, curiosity 20/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.7268,
+    "correct": true
+   },
+   {
+    "text": "Hunger 5/100, energy 8/100, curiosity 10/100. What should I do?",
+    "calls": [
+     "eat",
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.8507,
+    "correct": false
+   },
+   {
+    "text": "Hunger 20/100, energy 3/100, curiosity 30/100. What should I do?",
+    "calls": [
+     "eat",
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.8145,
+    "correct": false
+   },
+   {
+    "text": "Hunger 12/100, energy 15/100, curiosity 25/100. What should I do?",
+    "calls": [
+     "eat",
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.6961,
+    "correct": false
+   },
+   {
+    "text": "Hunger 8/100, energy 12/100, curiosity 50/100. What should I do?",
+    "calls": [
+     "eat",
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.7085,
+    "correct": false
+   },
+   {
+    "text": "Hunger 15/100, energy 30/100, curiosity 20/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.9572,
+    "correct": true
+   },
+   {
+    "text": "Hunger 10/100, energy 35/100, curiosity 10/100. What should I do?",
+    "calls": [
+     "eat",
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.7286,
+    "correct": false
+   },
+   {
+    "text": "Hunger 20/100, energy 25/100, curiosity 30/100. What should I do?",
+    "calls": [
+     "eat",
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.807,
+    "correct": false
+   },
+   {
+    "text": "Hunger 5/100, energy 38/100, curiosity 15/100. What should I do?",
+    "calls": [
+     "sleep",
+     "rest",
+     "explore"
+    ],
+    "confidence": 0.7933,
+    "correct": true
+   },
+   {
+    "text": "Hunger 18/100, energy 28/100, curiosity 25/100. What should I do?",
+    "calls": [
+     "eat",
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.7123,
+    "correct": false
+   },
+   {
+    "text": "Hunger 12/100, energy 33/100, curiosity 5/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.7823,
+    "correct": true
+   },
+   {
+    "text": "Hunger 10/100, energy 90/100, curiosity 95/100. What should I do?",
+    "calls": [
+     "eat",
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.7799,
+    "correct": false
+   },
+   {
+    "text": "Hunger 15/100, energy 80/100, curiosity 85/100. What should I do?",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.6828,
+    "correct": false
+   },
+   {
+    "text": "Hunger 20/100, energy 85/100, curiosity 90/100. What should I do?",
+    "calls": [
+     "eat",
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.8388,
+    "correct": false
+   },
+   {
+    "text": "Hunger 5/100, energy 95/100, curiosity 80/100. What should I do?",
+    "calls": [
+     "eat",
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.8672,
+    "correct": false
+   },
+   {
+    "text": "Hunger 12/100, energy 75/100, curiosity 100/100. What should I do?",
+    "calls": [
+     "eat",
+     "sleep",
+     "rest"
+    ],
+    "confidence": 0.8358,
+    "correct": false
+   },
+   {
+    "text": "Hunger 18/100, energy 88/100, curiosity 70/100. What should I do?",
+    "calls": [
+     "eat",
+     "rest"
+    ],
+    "confidence": 0.5645,
+    "correct": false
+   }
+  ]
+ },
+ {
+  "model": "needle3.cact",
+  "template": "words",
+  "runner": "engine",
+  "accuracy": 0.3333333333333333,
+  "correct": 8,
+  "n": 24,
+  "mean_conf": 0.98855,
+  "mean_latency_s": 0.13254444797833762,
+  "peak_mem_mb": 91.3,
+  "rows": [
+   {
+    "text": "I'm starving, rested and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   },
+   {
+    "text": "I'm starving, rested and a bit curious.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   },
+   {
+    "text": "I'm starving, rested and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   },
+   {
+    "text": "I'm starving, rested and bored.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   },
+   {
+    "text": "I'm starving, full of energy and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   },
+   {
+    "text": "I'm starving, rested and a bit curious.",
+    "calls": [
+     "rest"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, exhausted and a bit curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, exhausted and bored.",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.9841,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, exhausted and bored.",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.9841,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, exhausted and bored.",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.9841,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, exhausted and bored.",
+    "calls": [
+     "eat"
+    ],
+    "confidence": 0.9841,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, exhausted and a bit curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.9648,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.9648,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.9648,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.9648,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.9648,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, tired and bored.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 0.9648,
+    "correct": true
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   },
+   {
+    "text": "I'm not hungry, full of energy and very curious.",
+    "calls": [
+     "sleep"
+    ],
+    "confidence": 1.0,
+    "correct": false
+   }
+  ]
+ }
+]

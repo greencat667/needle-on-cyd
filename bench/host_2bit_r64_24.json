@@ -1,0 +1,266 @@
+[
+ {
+  "input": "I'm starving, rested and bored.",
+  "calls": [
+   {
+    "name": "eat",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'starving' -> eat",
+  "think": 9
+ },
+ {
+  "input": "I'm starving, rested and a bit curious.",
+  "calls": [
+   {
+    "name": "eat",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'starving' -> eat",
+  "think": 9
+ },
+ {
+  "input": "I'm starving, rested and bored.",
+  "calls": [
+   {
+    "name": "eat",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'starving' -> eat",
+  "think": 9
+ },
+ {
+  "input": "I'm starving, rested and bored.",
+  "calls": [
+   {
+    "name": "eat",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'starving' -> eat",
+  "think": 9
+ },
+ {
+  "input": "I'm starving, full of energy and bored.",
+  "calls": [
+   {
+    "name": "eat",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'full of energy' -> eat",
+  "think": 9
+ },
+ {
+  "input": "I'm starving, rested and a bit curious.",
+  "calls": [
+   {
+    "name": "eat",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'starving' -> eat",
+  "think": 9
+ },
+ {
+  "input": "I'm not hungry, exhausted and a bit curious.",
+  "calls": [
+   {
+    "name": "sleep",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'exhausted' -> sleep",
+  "think": 10
+ },
+ {
+  "input": "I'm not hungry, exhausted and bored.",
+  "calls": [
+   {
+    "name": "sleep",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'exhausted' -> sleep",
+  "think": 10
+ },
+ {
+  "input": "I'm not hungry, exhausted and bored.",
+  "calls": [
+   {
+    "name": "sleep",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'exhausted' -> sleep",
+  "think": 10
+ },
+ {
+  "input": "I'm not hungry, exhausted and bored.",
+  "calls": [
+   {
+    "name": "sleep",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'exhausted' -> sleep",
+  "think": 10
+ },
+ {
+  "input": "I'm not hungry, exhausted and bored.",
+  "calls": [
+   {
+    "name": "sleep",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'exhausted' -> sleep",
+  "think": 10
+ },
+ {
+  "input": "I'm not hungry, exhausted and a bit curious.",
+  "calls": [
+   {
+    "name": "sleep",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'exhausted' -> sleep",
+  "think": 10
+ },
+ {
+  "input": "I'm not hungry, tired and bored.",
+  "calls": [
+   {
+    "name": "rest",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'tired' -> rest",
+  "think": 8
+ },
+ {
+  "input": "I'm not hungry, tired and bored.",
+  "calls": [
+   {
+    "name": "rest",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'tired' -> rest",
+  "think": 8
+ },
+ {
+  "input": "I'm not hungry, tired and bored.",
+  "calls": [
+   {
+    "name": "rest",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'tired' -> rest",
+  "think": 8
+ },
+ {
+  "input": "I'm not hungry, tired and bored.",
+  "calls": [
+   {
+    "name": "rest",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'tired' -> rest",
+  "think": 8
+ },
+ {
+  "input": "I'm not hungry, tired and bored.",
+  "calls": [
+   {
+    "name": "rest",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'tired' -> rest",
+  "think": 8
+ },
+ {
+  "input": "I'm not hungry, tired and bored.",
+  "calls": [
+   {
+    "name": "rest",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'tired' -> rest",
+  "think": 8
+ },
+ {
+  "input": "I'm not hungry, full of energy and very curious.",
+  "calls": [
+   {
+    "name": "explore",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'full of energy' -> explore",
+  "think": 9
+ },
+ {
+  "input": "I'm not hungry, full of energy and very curious.",
+  "calls": [
+   {
+    "name": "explore",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'full of energy' -> explore",
+  "think": 9
+ },
+ {
+  "input": "I'm not hungry, full of energy and very curious.",
+  "calls": [
+   {
+    "name": "explore",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'full of energy' -> explore",
+  "think": 9
+ },
+ {
+  "input": "I'm not hungry, full of energy and very curious.",
+  "calls": [
+   {
+    "name": "explore",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'full of energy' -> explore",
+  "think": 9
+ },
+ {
+  "input": "I'm not hungry, full of energy and very curious.",
+  "calls": [
+   {
+    "name": "explore",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'full of energy' -> explore",
+  "think": 9
+ },
+ {
+  "input": "I'm not hungry, full of energy and very curious.",
+  "calls": [
+   {
+    "name": "explore",
+    "arguments": {}
+   }
+  ],
+  "reasoning": "\n'full of energy' -> explore",
+  "think": 9
+ }
+]

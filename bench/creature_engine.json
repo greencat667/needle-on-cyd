@@ -1,0 +1,194 @@
+[
+ {
+  "text": "I'm starving, rested, bored and content.",
+  "calls": [
+   "eat"
+  ],
+  "reasoning": "'starving' -> eat",
+  "correct": true
+ },
+ {
+  "text": "I'm starving, rested, a bit curious and happy.",
+  "calls": [
+   "eat"
+  ],
+  "reasoning": "'starving' -> eat",
+  "correct": true
+ },
+ {
+  "text": "I'm starving, rested, bored and sad.",
+  "calls": [
+   "eat"
+  ],
+  "reasoning": "'starving' -> eat",
+  "correct": true
+ },
+ {
+  "text": "I'm starving, rested, bored and content.",
+  "calls": [
+   "eat"
+  ],
+  "reasoning": "'starving' -> eat",
+  "correct": true
+ },
+ {
+  "text": "I'm starving, full of energy, bored and content.",
+  "calls": [
+   "eat"
+  ],
+  "reasoning": "'starving' -> eat",
+  "correct": true
+ },
+ {
+  "text": "I'm starving, rested, a bit curious and happy.",
+  "calls": [
+   "eat"
+  ],
+  "reasoning": "'starving' -> eat",
+  "correct": true
+ },
+ {
+  "text": "I'm not hungry, exhausted, a bit curious and content.",
+  "calls": [
+   "sleep"
+  ],
+  "reasoning": "'exhausted' -> sleep",
+  "correct": true
+ },
+ {
+  "text": "I'm not hungry, exhausted, bored and happy.",
+  "calls": [
+   "sleep"
+  ],
+  "reasoning": "'exhausted' -> sleep",
+  "correct": true
+ },
+ {
+  "text": "I'm not hungry, tired, bored and content.",
+  "calls": [
+   "sleep"
+  ],
+  "reasoning": "'tired' -> sleep",
+  "correct": true
+ },
+ {
+  "text": "I'm not hungry, exhausted, very curious and content.",
+  "calls": [
+   "sleep"
+  ],
+  "reasoning": "'exhausted' -> sleep",
+  "correct": true
+ },
+ {
+  "text": "I'm not hungry, tired, bored and sad.",
+  "calls": [
+   "sleep"
+  ],
+  "reasoning": "'tired' -> sleep",
+  "correct": true
+ },
+ {
+  "text": "I'm not hungry, exhausted, very curious and happy.",
+  "calls": [
+   "sleep"
+  ],
+  "reasoning": "'exhausted' -> sleep",
+  "correct": true
+ },
+ {
+  "text": "I'm not hungry, full of energy, very curious and content.",
+  "calls": [
+   "explore"
+  ],
+  "reasoning": "'very curious' -> explore",
+  "correct": true
+ },
+ {
+  "text": "I'm not hungry, full of energy, very curious and happy.",
+  "calls": [
+   "explore"
+  ],
+  "reasoning": "'very curious' -> explore",
+  "correct": true
+ },
+ {
+  "text": "I'm not hungry, full of energy, very curious and content.",
+  "calls": [
+   "explore"
+  ],
+  "reasoning": "'very curious' -> explore",
+  "correct": true
+ },
+ {
+  "text": "I'm not hungry, full of energy, very curious and content.",
+  "calls": [
+   "explore"
+  ],
+  "reasoning": "'very curious' -> explore",
+  "correct": true
+ },
+ {
+  "text": "I'm not hungry, full of energy, very curious and happy.",
+  "calls": [
+   "explore"
+  ],
+  "reasoning": "'very curious' -> explore",
+  "correct": true
+ },
+ {
+  "text": "I'm not hungry, full of energy, very curious and happy.",
+  "calls": [
+   "explore"
+  ],
+  "reasoning": "'very curious' -> explore",
+  "correct": true
+ },
+ {
+  "text": "I'm not hungry, rested, bored and sad.",
+  "calls": [
+   "play"
+  ],
+  "reasoning": "'sad' -> play",
+  "correct": true
+ },
+ {
+  "text": "I'm not hungry, rested, bored and sad.",
+  "calls": [
+   "play"
+  ],
+  "reasoning": "'sad' -> play",
+  "correct": true
+ },
+ {
+  "text": "I'm not hungry, rested, bored and sad.",
+  "calls": [
+   "play"
+  ],
+  "reasoning": "'sad' -> play",
+  "correct": true
+ },
+ {
+  "text": "I'm not hungry, rested, bored and sad.",
+  "calls": [
+   "play"
+  ],
+  "reasoning": "'sad' -> play",
+  "correct": true
+ },
+ {
+  "text": "I'm not hungry, rested, a bit curious and sad.",
+  "calls": [
+   "play"
+  ],
+  "reasoning": "'sad' -> play",
+  "correct": true
+ },
+ {
+  "text": "I'm not hungry, rested, bored and content.",
+  "calls": [
+   "play"
+  ],
+  "reasoning": "'nothing urgent' -> play",
+  "correct": true
+ }
+]

@@ -1,0 +1,266 @@
+[
+ {
+  "state": {
+   "hunger": 95,
+   "energy": 60,
+   "curiosity": 20,
+   "happiness": 50
+  },
+  "expected": [
+   "eat"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 90,
+   "energy": 70,
+   "curiosity": 40,
+   "happiness": 80
+  },
+  "expected": [
+   "eat"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 85,
+   "energy": 55,
+   "curiosity": 10,
+   "happiness": 20
+  },
+  "expected": [
+   "eat"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 100,
+   "energy": 65,
+   "curiosity": 30,
+   "happiness": 60
+  },
+  "expected": [
+   "eat"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 88,
+   "energy": 80,
+   "curiosity": 20,
+   "happiness": 40
+  },
+  "expected": [
+   "eat"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 92,
+   "energy": 50,
+   "curiosity": 50,
+   "happiness": 90
+  },
+  "expected": [
+   "eat"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 10,
+   "energy": 5,
+   "curiosity": 40,
+   "happiness": 50
+  },
+  "expected": [
+   "sleep"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 15,
+   "energy": 10,
+   "curiosity": 20,
+   "happiness": 80
+  },
+  "expected": [
+   "sleep"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 5,
+   "energy": 30,
+   "curiosity": 10,
+   "happiness": 60
+  },
+  "expected": [
+   "sleep"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 20,
+   "energy": 3,
+   "curiosity": 70,
+   "happiness": 50
+  },
+  "expected": [
+   "sleep"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 12,
+   "energy": 25,
+   "curiosity": 25,
+   "happiness": 20
+  },
+  "expected": [
+   "sleep"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 8,
+   "energy": 12,
+   "curiosity": 90,
+   "happiness": 70
+  },
+  "expected": [
+   "sleep"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 10,
+   "energy": 90,
+   "curiosity": 95,
+   "happiness": 50
+  },
+  "expected": [
+   "explore"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 15,
+   "energy": 80,
+   "curiosity": 85,
+   "happiness": 80
+  },
+  "expected": [
+   "explore"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 20,
+   "energy": 85,
+   "curiosity": 90,
+   "happiness": 60
+  },
+  "expected": [
+   "explore"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 5,
+   "energy": 95,
+   "curiosity": 80,
+   "happiness": 45
+  },
+  "expected": [
+   "explore"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 12,
+   "energy": 75,
+   "curiosity": 100,
+   "happiness": 90
+  },
+  "expected": [
+   "explore"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 18,
+   "energy": 88,
+   "curiosity": 70,
+   "happiness": 70
+  },
+  "expected": [
+   "explore"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 10,
+   "energy": 60,
+   "curiosity": 20,
+   "happiness": 10
+  },
+  "expected": [
+   "play"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 15,
+   "energy": 55,
+   "curiosity": 25,
+   "happiness": 20
+  },
+  "expected": [
+   "play"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 20,
+   "energy": 50,
+   "curiosity": 10,
+   "happiness": 5
+  },
+  "expected": [
+   "play"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 5,
+   "energy": 65,
+   "curiosity": 15,
+   "happiness": 25
+  },
+  "expected": [
+   "play"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 12,
+   "energy": 60,
+   "curiosity": 40,
+   "happiness": 15
+  },
+  "expected": [
+   "play"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 8,
+   "energy": 50,
+   "curiosity": 20,
+   "happiness": 45
+  },
+  "expected": [
+   "play"
+  ]
+ }
+]

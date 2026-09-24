@@ -1,0 +1,17 @@
+menu "Needle on CYD"
+config NEEDLE_SD_SDMMC
+    bool "SD card on the SDMMC host (QEMU) instead of SPI (the CYD's wiring)"
+    default n
+config NEEDLE_HEADLESS
+    bool "No display or touch (serial only)"
+    default n
+config NEEDLE_SELFTEST
+    bool "Run the four-tool benchmark over serial at boot"
+    default n
+config NEEDLE_THINK_BUDGET
+    int "Reasoning tokens before </think> is forced"
+    default 12
+config NEEDLE_SD_MHZ
+    int "SD SPI clock (MHz)"
+    default 40
+endmenu

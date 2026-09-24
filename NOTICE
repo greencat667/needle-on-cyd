@@ -1,0 +1,15 @@
+needle-on-cyd
+Copyright 2026 the needle-on-cyd authors. Licensed under the Apache License 2.0 (LICENSE).
+
+An independent project. It is not affiliated with, endorsed by or supported by
+Cactus Compute, Inc. "Needle" and "Cactus" are theirs.
+
+This work is built against Needle (https://github.com/cactus-compute/needle,
+Apache-2.0), and parts of tools/ call or adapt its code (the reference model,
+the .cact reader/writer and the quantiser). Needle's weights are not included;
+tools/ downloads them from Cactus Compute's Hugging Face repository under
+their terms.
+
+Fonts in assets/fonts (and the bitmaps generated from them in
+firmware/ui/fonts.h): Space Grotesk and JetBrains Mono, SIL Open Font License
+1.1 (assets/fonts/OFL-*.txt).

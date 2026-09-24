@@ -1,0 +1,156 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0030,len:7176
+load:0x40078000,len:15576
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (29) boot: ESP-IDF v5.3.1 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Sep 24 2026 08:19:37[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (34) boot: chip revision: v3.1[0m
+[0;32mI (37) boot.esp32: SPI Speed      : 80MHz[0m
+[0;32mI (42) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (47) boot.esp32: SPI Flash Size : 4MB[0m
+[0;32mI (51) boot: Enabling RNG early entropy source...[0m
+[0;32mI (57) boot: Partition Table:[0m
+[0;32mI (60) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (67) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (75) boot:  1 factory          factory app      00 00 00010000 000b0000[0m
+[0;32mI (82) boot:  2 needle           Unknown data     01 40 000c0000 00340000[0m
+[0;32mI (90) boot: End of partition table[0m
+[0;32mI (94) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1aab4h (109236) map[0m
+[0;32mI (133) esp_image: segment 1: paddr=0002aadc vaddr=3ffb0000 size=0390ch ( 14604) load[0m
+[0;32mI (138) esp_image: segment 2: paddr=0002e3f0 vaddr=40080000 size=01c28h (  7208) load[0m
+[0;32mI (142) esp_image: segment 3: paddr=00030020 vaddr=400d0020 size=39214h (234004) map[0m
+[0;32mI (214) esp_image: segment 4: paddr=0006923c vaddr=40081c28 size=0d030h ( 53296) load[0m
+[0;32mI (239) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (240) boot: Disabling RNG early entropy source...[0m
+[0;32mI (251) cpu_start: Multicore app[0m
+[0;32mI (260) cpu_start: Pro cpu start user code[0m
+[0;32mI (260) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (260) app_init: Application information:[0m
+[0;32mI (263) app_init: Project name:     needle_cyd[0m
+[0;32mI (268) app_init: App version:      0f7ca3c-dirty[0m
+[0;32mI (273) app_init: Compile time:     Sep 24 2026 09:43:02[0m
+[0;32mI (279) app_init: ELF file SHA256:  961ced9b3...[0m
+[0;32mI (284) app_init: ESP-IDF:          v5.3.1[0m
+[0;32mI (289) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (294) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (299) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (304) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (311) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (317) heap_init: At 3FFC0520 len 0001FAE0 (126 KiB): DRAM[0m
+[0;32mI (323) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (329) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (336) heap_init: At 4008EC58 len 000113A8 (68 KiB): IRAM[0m
+[0;32mI (343) spi_flash: detected chip: generic[0m
+[0;32mI (347) spi_flash: flash io: dio[0m
+[0;32mI (351) main_task: Started on CPU0[0m
+[0;32mI (355) main_task: Calling app_main()[0m
+[0;32mI (359) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (368) gpio: GPIO[16]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (377) gpio: GPIO[17]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (387) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (395) gpio: GPIO[21]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (676) gpio: GPIO[25]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (676) gpio: GPIO[32]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (683) gpio: GPIO[33]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (693) gpio: GPIO[36]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (702) gpio: GPIO[39]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+
+=== Needle 3 on ESP32 (CYD) ===
+[boot] chip rev 301, 2 cores, firmware 418448 B, Wi-Fi/BT never started
+[mem] boot: free 237704 B, min free 237540 B, largest block 110592 B, runtime live 0 B peak 0 B (+0 B in IRAM; largest alloc 0 B: -)
+[0;32mI (832) gpio: GPIO[5]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (832) sdspi_transaction: cmd=52, R1 response: command not supported[0m
+[0;32mI (879) sdspi_transaction: cmd=5, R1 response: command not supported[0m
+sd: SA16G, 14992 MB, 40000 kHz
+[boot] model file /sdcard/needle/needle3.cact: 13328276 B
+flash: archive bytes [3520, +3244032) served from flash
+flash: archive bytes [13219136, +109140) served from flash
+tokenizer: surface index from SD (16384 entries)
+[boot] tool prefix 107 tokens; context 161 positions
+[mem] before model: free 201204 B, min free 201204 B, largest block 110592 B, runtime live 11264 B peak 11264 B (+0 B in IRAM; largest alloc 4096 B: sd block buffer)
+[mem] model loaded: free 14132 B, min free 14132 B, largest block 10752 B, runtime live 197916 B peak 197916 B (+0 B in IRAM; largest alloc 20608 B: kv cache V)
+[boot] prefix ready in 0.1 s (0 B read)
+[mem] ready: free 13916 B, min free 13908 B, largest block 10752 B, runtime live 197916 B peak 197916 B (+0 B in IRAM; largest alloc 20608 B: kv cache V)
+{"input":"I'm starving, rested and bored.","function_calls":[{"name":"eat","arguments":{}}],"reasoning":"\n'starving' -> eat","confidence":0.9999,"call_prob":0.9999,"think_tokens":9,"think_truncated":false,"prefix_tokens":107,"turn_tokens":19,"generated":14,"total_s":67.55,"prefill_s":32.92,"decode_s":34.63,"decode_tok_s":0.40,"bytes_read":125715528,"reads":45142,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 104.9 MB in 15869 card reads, 48.5 s; flash 32.5 MB, 3.8 s; matmul kernels 57.5 s (incl. their reads), 0.2 GMAC
+[bench]  1/24  h 95 e 60 c 20  -> eat      expected eat          OK  67.6 s
+{"input":"I'm starving, rested and a bit curious.","function_calls":[{"name":"eat","arguments":{}}],"reasoning":"\n'rested' -> eat","confidence":0.9999,"call_prob":0.9999,"think_tokens":8,"think_truncated":false,"prefix_tokens":107,"turn_tokens":22,"generated":13,"total_s":70.37,"prefill_s":38.13,"decode_s":32.24,"decode_tok_s":0.40,"bytes_read":127797676,"reads":46149,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 110.8 MB in 16773 card reads, 51.2 s; flash 29.3 MB, 3.5 s; matmul kernels 59.7 s (incl. their reads), 0.2 GMAC
+[bench]  2/24  h 90 e 70 c 40  -> eat      expected eat          OK  70.4 s
+{"input":"I'm starving, rested and bored.","function_calls":[{"name":"eat","arguments":{}}],"reasoning":"\n'starving' -> eat","confidence":0.9999,"call_prob":0.9999,"think_tokens":9,"think_truncated":false,"prefix_tokens":107,"turn_tokens":19,"generated":14,"total_s":67.57,"prefill_s":32.93,"decode_s":34.64,"decode_tok_s":0.40,"bytes_read":125715528,"reads":45142,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 104.9 MB in 15869 card reads, 48.5 s; flash 32.5 MB, 3.8 s; matmul kernels 57.5 s (incl. their reads), 0.2 GMAC
+[bench]  3/24  h 85 e 55 c 10  -> eat      expected eat          OK  67.6 s
+{"input":"I'm starving, rested and bored.","function_calls":[{"name":"eat","arguments":{}}],"reasoning":"\n'starving' -> eat","confidence":0.9999,"call_prob":0.9999,"think_tokens":9,"think_truncated":false,"prefix_tokens":107,"turn_tokens":19,"generated":14,"total_s":67.59,"prefill_s":32.94,"decode_s":34.65,"decode_tok_s":0.40,"bytes_read":125715528,"reads":45142,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 104.9 MB in 15869 card reads, 48.5 s; flash 32.5 MB, 3.8 s; matmul kernels 57.5 s (incl. their reads), 0.2 GMAC
+[bench]  4/24  h100 e 65 c 30  -> eat      expected eat          OK  67.6 s
+{"input":"I'm starving, full of energy and bored.","function_calls":[{"name":"eat","arguments":{}}],"reasoning":"\n'starving' -> eat","confidence":1.0000,"call_prob":1.0000,"think_tokens":9,"think_truncated":false,"prefix_tokens":107,"turn_tokens":20,"generated":14,"total_s":69.34,"prefill_s":34.70,"decode_s":34.65,"decode_tok_s":0.40,"bytes_read":128381880,"reads":46495,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 107.8 MB in 16322 card reads, 49.9 s; flash 32.5 MB, 3.9 s; matmul kernels 59.0 s (incl. their reads), 0.2 GMAC
+[bench]  5/24  h 88 e 80 c 20  -> eat      expected eat          OK  69.3 s
+{"input":"I'm starving, rested and a bit curious.","function_calls":[{"name":"eat","arguments":{}}],"reasoning":"\n'rested' -> eat","confidence":0.9999,"call_prob":0.9999,"think_tokens":8,"think_truncated":false,"prefix_tokens":107,"turn_tokens":22,"generated":13,"total_s":70.38,"prefill_s":38.14,"decode_s":32.25,"decode_tok_s":0.40,"bytes_read":127797676,"reads":46149,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 110.8 MB in 16773 card reads, 51.2 s; flash 29.3 MB, 3.5 s; matmul kernels 59.7 s (incl. their reads), 0.2 GMAC
+[bench]  6/24  h 92 e 50 c 50  -> eat      expected eat          OK  70.4 s
+{"input":"I'm not hungry, exhausted and a bit curious.","function_calls":[{"name":"sleep","arguments":{}}],"reasoning":"\n'exhausted' -> sleep","confidence":1.0000,"call_prob":1.0000,"think_tokens":10,"think_truncated":false,"prefix_tokens":107,"turn_tokens":26,"generated":14,"total_s":80.32,"prefill_s":45.03,"decode_s":35.29,"decode_tok_s":0.40,"bytes_read":147594268,"reads":51452,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 125.8 MB in 19041 card reads, 58.2 s; flash 35.7 MB, 4.2 s; matmul kernels 68.3 s (incl. their reads), 0.3 GMAC
+[bench]  7/24  h 10 e  5 c 40  -> sleep    expected sleep|rest   OK  80.3 s
+{"input":"I'm not hungry, exhausted and bored.","function_calls":[{"name":"sleep","arguments":{}}],"reasoning":"\n'bored' -> sleep","confidence":1.0000,"call_prob":1.0000,"think_tokens":8,"think_truncated":false,"prefix_tokens":107,"turn_tokens":23,"generated":12,"total_s":70.32,"prefill_s":39.84,"decode_s":30.47,"decode_tok_s":0.39,"bytes_read":127786289,"reads":44960,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 110.8 MB in 16774 card reads, 51.2 s; flash 29.3 MB, 3.4 s; matmul kernels 59.7 s (incl. their reads), 0.2 GMAC
+[bench]  8/24  h 15 e 10 c 20  -> sleep    expected sleep|rest   OK  70.3 s
+{"input":"I'm not hungry, exhausted and bored.","function_calls":[{"name":"sleep","arguments":{}}],"reasoning":"\n'bored' -> sleep","confidence":1.0000,"call_prob":1.0000,"think_tokens":8,"think_truncated":false,"prefix_tokens":107,"turn_tokens":23,"generated":12,"total_s":70.30,"prefill_s":39.83,"decode_s":30.47,"decode_tok_s":0.39,"bytes_read":127786289,"reads":44960,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 110.8 MB in 16774 card reads, 51.2 s; flash 29.3 MB, 3.4 s; matmul kernels 59.7 s (incl. their reads), 0.2 GMAC
+[bench]  9/24  h  5 e  8 c 10  -> sleep    expected sleep|rest   OK  70.3 s
+{"input":"I'm not hungry, exhausted and bored.","function_calls":[{"name":"sleep","arguments":{}}],"reasoning":"\n'bored' -> sleep","confidence":1.0000,"call_prob":1.0000,"think_tokens":8,"think_truncated":false,"prefix_tokens":107,"turn_tokens":23,"generated":12,"total_s":70.32,"prefill_s":39.84,"decode_s":30.47,"decode_tok_s":0.39,"bytes_read":127786289,"reads":44960,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 110.8 MB in 16774 card reads, 51.2 s; flash 29.3 MB, 3.4 s; matmul kernels 59.7 s (incl. their reads), 0.2 GMAC
+[bench] 10/24  h 20 e  3 c 30  -> sleep    expected sleep|rest   OK  70.3 s
+{"input":"I'm not hungry, exhausted and bored.","function_calls":[{"name":"sleep","arguments":{}}],"reasoning":"\n'bored' -> sleep","confidence":1.0000,"call_prob":1.0000,"think_tokens":8,"think_truncated":false,"prefix_tokens":107,"turn_tokens":23,"generated":12,"total_s":70.30,"prefill_s":39.83,"decode_s":30.47,"decode_tok_s":0.39,"bytes_read":127786289,"reads":44960,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 110.8 MB in 16774 card reads, 51.2 s; flash 29.3 MB, 3.4 s; matmul kernels 59.7 s (incl. their reads), 0.2 GMAC
+[bench] 11/24  h 12 e 15 c 25  -> sleep    expected sleep|rest   OK  70.3 s
+{"input":"I'm not hungry, exhausted and a bit curious.","function_calls":[{"name":"sleep","arguments":{}}],"reasoning":"\n'exhausted' -> sleep","confidence":1.0000,"call_prob":1.0000,"think_tokens":10,"think_truncated":false,"prefix_tokens":107,"turn_tokens":26,"generated":14,"total_s":80.35,"prefill_s":45.05,"decode_s":35.30,"decode_tok_s":0.40,"bytes_read":147594268,"reads":51452,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 125.8 MB in 19041 card reads, 58.2 s; flash 35.7 MB, 4.2 s; matmul kernels 68.3 s (incl. their reads), 0.3 GMAC
+[bench] 12/24  h  8 e 12 c 50  -> sleep    expected sleep|rest   OK  80.3 s
+{"input":"I'm not hungry, tired and bored.","function_calls":[{"name":"rest","arguments":{}}],"reasoning":"\n'tired' -> rest","confidence":1.0000,"call_prob":1.0000,"think_tokens":8,"think_truncated":false,"prefix_tokens":107,"turn_tokens":21,"generated":12,"total_s":66.86,"prefill_s":36.40,"decode_s":30.47,"decode_tok_s":0.39,"bytes_read":122460982,"reads":43337,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 104.8 MB in 15867 card reads, 48.5 s; flash 29.3 MB, 3.4 s; matmul kernels 56.8 s (incl. their reads), 0.2 GMAC
+[bench] 13/24  h 15 e 30 c 20  -> rest     expected rest|sleep   OK  66.9 s
+{"input":"I'm not hungry, tired and bored.","function_calls":[{"name":"rest","arguments":{}}],"reasoning":"\n'tired' -> rest","confidence":1.0000,"call_prob":1.0000,"think_tokens":8,"think_truncated":false,"prefix_tokens":107,"turn_tokens":21,"generated":12,"total_s":66.87,"prefill_s":36.40,"decode_s":30.47,"decode_tok_s":0.39,"bytes_read":122460982,"reads":43337,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 104.8 MB in 15867 card reads, 48.5 s; flash 29.3 MB, 3.4 s; matmul kernels 56.8 s (incl. their reads), 0.2 GMAC
+[bench] 14/24  h 10 e 35 c 10  -> rest     expected rest|sleep   OK  66.9 s
+{"input":"I'm not hungry, tired and bored.","function_calls":[{"name":"rest","arguments":{}}],"reasoning":"\n'tired' -> rest","confidence":1.0000,"call_prob":1.0000,"think_tokens":8,"think_truncated":false,"prefix_tokens":107,"turn_tokens":21,"generated":12,"total_s":66.86,"prefill_s":36.40,"decode_s":30.47,"decode_tok_s":0.39,"bytes_read":122460982,"reads":43337,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 104.8 MB in 15867 card reads, 48.5 s; flash 29.3 MB, 3.4 s; matmul kernels 56.8 s (incl. their reads), 0.2 GMAC
+[bench] 15/24  h 20 e 25 c 30  -> rest     expected rest|sleep   OK  66.9 s
+{"input":"I'm not hungry, tired and bored.","function_calls":[{"name":"rest","arguments":{}}],"reasoning":"\n'tired' -> rest","confidence":1.0000,"call_prob":1.0000,"think_tokens":8,"think_truncated":false,"prefix_tokens":107,"turn_tokens":21,"generated":12,"total_s":66.87,"prefill_s":36.40,"decode_s":30.47,"decode_tok_s":0.39,"bytes_read":122460982,"reads":43337,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 104.8 MB in 15867 card reads, 48.5 s; flash 29.3 MB, 3.4 s; matmul kernels 56.8 s (incl. their reads), 0.2 GMAC
+[bench] 16/24  h  5 e 38 c 15  -> rest     expected rest|sleep   OK  66.9 s
+{"input":"I'm not hungry, tired and bored.","function_calls":[{"name":"rest","arguments":{}}],"reasoning":"\n'tired' -> rest","confidence":1.0000,"call_prob":1.0000,"think_tokens":8,"think_truncated":false,"prefix_tokens":107,"turn_tokens":21,"generated":12,"total_s":66.86,"prefill_s":36.40,"decode_s":30.47,"decode_tok_s":0.39,"bytes_read":122460982,"reads":43337,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 104.8 MB in 15867 card reads, 48.5 s; flash 29.3 MB, 3.4 s; matmul kernels 56.8 s (incl. their reads), 0.2 GMAC
+[bench] 17/24  h 18 e 28 c 25  -> rest     expected rest|sleep   OK  66.9 s
+{"input":"I'm not hungry, tired and bored.","function_calls":[{"name":"rest","arguments":{}}],"reasoning":"\n'tired' -> rest","confidence":1.0000,"call_prob":1.0000,"think_tokens":8,"think_truncated":false,"prefix_tokens":107,"turn_tokens":21,"generated":12,"total_s":66.88,"prefill_s":36.41,"decode_s":30.47,"decode_tok_s":0.39,"bytes_read":122460982,"reads":43337,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 104.8 MB in 15867 card reads, 48.5 s; flash 29.3 MB, 3.4 s; matmul kernels 56.9 s (incl. their reads), 0.2 GMAC
+[bench] 18/24  h 12 e 33 c  5  -> rest     expected rest|sleep   OK  66.9 s
+{"input":"I'm not hungry, full of energy and very curious.","function_calls":[{"name":"explore","arguments":{}}],"reasoning":"\n'full of energy' -> explore","confidence":1.0000,"call_prob":1.0000,"think_tokens":9,"think_truncated":false,"prefix_tokens":107,"turn_tokens":24,"generated":13,"total_s":74.52,"prefill_s":41.63,"decode_s":32.88,"decode_tok_s":0.40,"bytes_read":136364022,"reads":48537,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 116.8 MB in 17681 card reads, 54.0 s; flash 32.5 MB, 3.8 s; matmul kernels 63.3 s (incl. their reads), 0.3 GMAC
+[bench] 19/24  h 10 e 90 c 95  -> explore  expected explore      OK  74.5 s
+{"input":"I'm not hungry, full of energy and very curious.","function_calls":[{"name":"explore","arguments":{}}],"reasoning":"\n'full of energy' -> explore","confidence":1.0000,"call_prob":1.0000,"think_tokens":9,"think_truncated":false,"prefix_tokens":107,"turn_tokens":24,"generated":13,"total_s":74.54,"prefill_s":41.65,"decode_s":32.89,"decode_tok_s":0.40,"bytes_read":136364022,"reads":48537,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 116.8 MB in 17681 card reads, 54.0 s; flash 32.5 MB, 3.8 s; matmul kernels 63.3 s (incl. their reads), 0.3 GMAC
+[bench] 20/24  h 15 e 80 c 85  -> explore  expected explore      OK  74.5 s
+{"input":"I'm not hungry, full of energy and very curious.","function_calls":[{"name":"explore","arguments":{}}],"reasoning":"\n'full of energy' -> explore","confidence":1.0000,"call_prob":1.0000,"think_tokens":9,"think_truncated":false,"prefix_tokens":107,"turn_tokens":24,"generated":13,"total_s":74.53,"prefill_s":41.64,"decode_s":32.88,"decode_tok_s":0.40,"bytes_read":136364022,"reads":48537,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 116.8 MB in 17681 card reads, 54.0 s; flash 32.5 MB, 3.8 s; matmul kernels 63.3 s (incl. their reads), 0.3 GMAC
+[bench] 21/24  h 20 e 85 c 90  -> explore  expected explore      OK  74.5 s
+{"input":"I'm not hungry, full of energy and very curious.","function_calls":[{"name":"explore","arguments":{}}],"reasoning":"\n'full of energy' -> explore","confidence":1.0000,"call_prob":1.0000,"think_tokens":9,"think_truncated":false,"prefix_tokens":107,"turn_tokens":24,"generated":13,"total_s":74.54,"prefill_s":41.65,"decode_s":32.89,"decode_tok_s":0.40,"bytes_read":136364022,"reads":48537,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 116.8 MB in 17681 card reads, 54.0 s; flash 32.5 MB, 3.8 s; matmul kernels 63.3 s (incl. their reads), 0.3 GMAC
+[bench] 22/24  h  5 e 95 c 80  -> explore  expected explore      OK  74.5 s
+{"input":"I'm not hungry, full of energy and very curious.","function_calls":[{"name":"explore","arguments":{}}],"reasoning":"\n'full of energy' -> explore","confidence":1.0000,"call_prob":1.0000,"think_tokens":9,"think_truncated":false,"prefix_tokens":107,"turn_tokens":24,"generated":13,"total_s":74.52,"prefill_s":41.64,"decode_s":32.88,"decode_tok_s":0.40,"bytes_read":136364022,"reads":48537,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 116.8 MB in 17681 card reads, 54.0 s; flash 32.5 MB, 3.8 s; matmul kernels 63.3 s (incl. their reads), 0.3 GMAC
+[bench] 23/24  h 12 e 75 c100  -> explore  expected explore      OK  74.5 s
+{"input":"I'm not hungry, full of energy and very curious.","function_calls":[{"name":"explore","arguments":{}}],"reasoning":"\n'full of energy' -> explore","confidence":1.0000,"call_prob":1.0000,"think_tokens":9,"think_truncated":false,"prefix_tokens":107,"turn_tokens":24,"generated":13,"total_s":74.54,"prefill_s":41.65,"decode_s":32.89,"decode_tok_s":0.40,"bytes_read":136364022,"reads":48537,"peak_heap_used":197916,"largest_alloc":20608,"free_heap":13916,"min_free_heap":13692}
+[io] this turn: SD 116.8 MB in 17681 card reads, 54.0 s; flash 32.5 MB, 3.8 s; matmul kernels 63.3 s (incl. their reads), 0.3 GMAC
+[bench] 24/24  h 18 e 88 c 70  -> explore  expected explore      OK  74.5 s
+[bench] accuracy 24/24, mean 71.0 s per decision
+[stats] inferences 24, avg 71.0 s, last 74.5 s, decode 0.40 tok/s, SD 2372858988 B / 757960 reads, flash 748029873 B
+[mem] now: free 13916 B, min free 13692 B, largest block 10752 B, runtime live 197916 B peak 197916 B (+0 B in IRAM; largest alloc 20608 B: kv cache V)
