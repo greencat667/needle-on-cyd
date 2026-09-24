@@ -21,3 +21,19 @@ host/probe/embed_probe
 host/ui_preview
 host/sim/*.o
 docs/screens/*.ppm
+# explainer video: sources are tracked, rendered media and tool environments are not
+video/tts/.venv/
+video/tts/samples/
+video/audio/
+video/music/*.flac
+video/music/*.mp3
+video/out/
+video/public/
+video/blender/frames/
+video/blender/out_*/
+video/blender/*.log
+video/remotion/node_modules/
+video/remotion/public/blender/
+video/remotion/public/clips/
+video/remotion/public/music.mp3
+video/remotion/public/narration.wav

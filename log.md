@@ -66,3 +66,9 @@
 **Next**
 - Check the animation on the real board (done: it looks right).
 - Full creature benchmark on the board (15/15 so far).
+
+## 2026-09-24 — explainer video
+- Built `video/`: Chatterbox narration (calm default voice, sentences re-rolled until Whisper hears them as written), YuE2 instrumental via ChorusServer (take C chosen; B may carry faint vocals), Blender board shots (orbit, push-in) with the firmware's own creature frames on the screen, Remotion scenes timed from `audio/timing.json`, burnt-in captions, music ducked under voice, loudness −16 LUFS.
+- Output: `video/out/needle-on-cyd.mp4` (1080p30, 2:13). Whisper transcript of the final mix matches the script.
+- Next: user review of the video; push the `public` branch (plus the later master commits) to greencat667/needle-on-cyd; put the Medium draft in with the repo link.
+- Later the same day: captions removed from the video (they'll be added on YouTube); `video/out/needle-on-cyd.en.srt` generated from the narration timing for upload. New "So what?" scene 9 (narration added with `video/tts/add_scene.py`, other sentences untouched): the creature as a stand-in for devices that turn a situation into an action, with three example devices shown as ideas, not built. Video now 2:41. Matching "So what?" section added to the blog draft.

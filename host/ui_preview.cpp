@@ -2,6 +2,7 @@
 // framebuffer, so screenshots match what the CYD draws pixel for pixel.
 //   make -C host ui_preview && host/ui_preview out_dir
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #include "../firmware/ui/display.h"
@@ -102,7 +103,51 @@ static void save(const char* dir, const char* name) {
     fclose(f);
 }
 
+// Frames over time: host/ui_preview --clip <dir> <action> <seconds> [fps]
+static int clip(const char* dir, const char* act, float secs, int fps) {
+    UiInfo info = {2, 8.6f, 9, "2 layers, creature, 2-bit"};
+    CreatureWorld w;
+    int a = !strcmp(act, "think") ? ACT_NONE : creature_action_of(act);
+    const bool thinking = a == ACT_NONE;
+    const float S[4][4] = {{85, 60, 30, 50}, {25, 12, 40, 55}, {15, 85, 88, 70}, {12, 60, 20, 22}};
+    const float* st = a >= 0 ? S[a] : S[2];
+    w.hunger = st[0]; w.energy = st[1]; w.curiosity = st[2]; w.happiness = st[3];
+    w.action = a; w.action_left = a >= 0 ? 25 : 0;
+    w.events = false;
+    ui_creature(w, info);
+    const char* names[4] = {"EAT", "SLEEP", "EXPLORE", "PLAY"};
+    const char* why[4] = {"eat()  'hungry' -> eat", "sleep()  'exhausted' -> sleep",
+                          "explore()  'very curious' -> explore", "play()  'sad' -> play"};
+    int n = (int)(secs * fps);
+    for (int f = 0; f < n; f++) {
+        const float t = f / (float)fps;
+        if (a >= 0) {
+            w.tick(1.0f / fps);
+            if (w.action_left < 1) w.action_left = 25;  // keep the action going for the clip
+            char sm[24];
+            snprintf(sm, sizeof(sm), "%.0f s to go", w.action_left);
+            if (f % fps == 0) {
+                ui_creature_stats(w);
+                ui_creature_status(names[a], sm, rgb(61, 220, 151));
+                ui_creature_line(why[a]);
+                ui_creature_footer(info, 12, 37);
+            }
+        } else if (f % fps == 0) {
+            ui_creature_status("THINKING", "Needle, on-device", rgb(255, 210, 63));
+            char b[48];
+            snprintf(b, sizeof(b), "thinking on-device... position %d", 131 + (int)t);
+            ui_creature_line(b);
+        }
+        ui_creature_face(w, (uint32_t)(t * 1000), thinking);
+        char name[64];
+        snprintf(name, sizeof(name), "f%04d", f);
+        save(dir, name);
+    }
+    return 0;
+}
+
 int main(int argc, char** argv) {
+    if (argc > 4 && !strcmp(argv[1], "--clip")) return clip(argv[2], argv[3], atof(argv[4]), argc > 5 ? atoi(argv[5]) : 30);
     const char* dir = argc > 1 ? argv[1] : ".";
     UiInfo info = {2, 8.6f, 10, "2 layers, creature, 2-bit"};
     struct { const char* name; float h, e, c, p; int act; float left; bool thinking; const char* big;

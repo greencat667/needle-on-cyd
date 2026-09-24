@@ -13,7 +13,8 @@ struct CreatureWorld {
     int action = ACT_NONE;
     float action_left = 0;     // seconds the current action still runs
     uint32_t actions_done = 0;
-    uint32_t rng = 0x2545F491u;
+    uint32_t rng = 0x2545F491u;  // seeded from the hardware RNG at boot
+    bool events = true;          // storms, butterflies... (off for rendered clips)
     char event[48] = "";       // last thing that happened in the world
 
     void tick(float dt);                   // advance the world by dt seconds

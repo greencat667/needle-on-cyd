@@ -13,25 +13,28 @@ static float frand(uint32_t* s) {  // xorshift32 in [0, 1)
 }
 
 void CreatureWorld::tick(float dt) {
-    // background drift: life makes you hungry, tired, curious and a bit glum
-    hunger += 0.8f * dt;
-    energy -= 0.5f * dt;
-    curiosity += 0.6f * dt;
-    happiness -= 0.4f * dt;
+    // background drift. Rates tuned with tools/sim_creature.py (the model's
+    // policy over 12 simulated hours): ~38% happy, 41% content, 21% sad, and
+    // the four actions used about equally. The world keeps going while
+    // Needle thinks, so a slow decision is felt.
+    hunger += 0.25f * dt;
+    energy -= 0.22f * dt;
+    curiosity += 0.45f * dt;
+    happiness -= 0.43f * dt;
     if (action_left > 0) {
         switch (action) {
-            case ACT_EAT: hunger -= 5.0f * dt; happiness += 0.5f * dt; break;
-            case ACT_SLEEP: energy += 5.0f * dt; hunger += 0.2f * dt; break;
-            case ACT_EXPLORE: curiosity -= 5.0f * dt; happiness += 1.5f * dt; energy -= 1.0f * dt;
+            case ACT_EAT: hunger -= 4.0f * dt; happiness += 0.5f * dt; break;
+            case ACT_SLEEP: energy += 3.5f * dt; break;
+            case ACT_EXPLORE: curiosity -= 3.0f * dt; happiness += 0.8f * dt; energy -= 1.0f * dt;
                               hunger += 0.6f * dt; break;
-            case ACT_PLAY: happiness += 5.0f * dt; energy -= 1.0f * dt; curiosity -= 0.5f * dt; break;
+            case ACT_PLAY: happiness += 3.2f * dt; energy -= 1.0f * dt; curiosity -= 0.5f * dt; break;
             default: break;
         }
         action_left -= dt;
         if (action_left <= 0) { action_left = 0; actions_done++; }
     }
     // now and then the world does something
-    if (frand(&rng) < 0.012f * dt) {
+    if (events && frand(&rng) < 0.012f * dt) {
         static const struct { const char* what; float dh, de, dc, dp; } E[] = {
             {"a storm rolls in", 0, -10, -10, -15},
             {"smells something tasty", 20, 0, 5, 0},

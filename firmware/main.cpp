@@ -16,6 +16,7 @@
 #include "esp_heap_caps.h"
 #include "esp_image_format.h"
 #include "esp_ota_ops.h"
+#include "esp_random.h"
 #include "esp_system.h"
 #include "esp_timer.h"
 #include "esp_rom_crc.h"
@@ -472,6 +473,12 @@ static void creature_progress(void*, int phase, int step, const char* text) {
     static uint64_t last = 0;
     const uint64_t now = nr_micros();
     char b[48];
+    static uint64_t last_tick = 0;
+    if (phase == 0 && now - last_tick >= 1000000) {  // the world goes on while it thinks
+        g_world.tick(last_tick ? (now - last_tick) / 1e6f : 1.0f);
+        last_tick = now;
+        ui_creature_stats(g_world);
+    }
     if (phase == 0 && now - last > 250000) {  // one frame per forward position at most
         last = now;
         ui_creature_face(g_world, (uint32_t)(now / 1000), true);
@@ -528,6 +535,7 @@ static void creature_decide() {
 }
 
 static void creature_loop() {
+    g_world.rng = esp_random() | 1u;  // a different life every boot
     ui_creature(g_world, ui_info());
     uint64_t last = nr_micros(), last_frame = 0;
     bool was_down = false;
@@ -551,7 +559,7 @@ static void creature_loop() {
             }
             if (g_world.action_left <= 0) {
                 creature_decide();
-                last = nr_micros();  // the world waits while it thinks
+                last = nr_micros();  // the world ticked inside creature_progress
             } else {
                 char sm[16];
                 snprintf(sm, sizeof(sm), "%.0f s to go", g_world.action_left);
