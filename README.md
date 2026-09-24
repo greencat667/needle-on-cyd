@@ -3,9 +3,13 @@
 Cactus Compute's **Needle 3** tool-calling model runs entirely on a stock
 **Cheap Yellow Display** (ESP32-2432S028R: one ESP32-D0WD-V3, 520 KB SRAM,
 4 MB flash, **no PSRAM**). There is no Raspberry Pi, computer, phone, cloud or
-Wi-Fi in the loop once it is flashed. You set how the creature feels on the
-touchscreen, press THINK, and about 37 seconds later the ESP32 has chosen
-`eat()`, `sleep()`, `explore()` or `rest()`. It does this by running Needle's
+Wi-Fi in the loop once it is flashed.
+
+The board runs a small autonomous creature. Its hunger, energy, curiosity and
+happiness drift on their own. Each time it finishes an activity, it describes
+how it feels in a sentence, and about 37 seconds later Needle, on the ESP32,
+has chosen what it does next: `eat()`, `sleep()`, `explore()` or `play()`.
+There is nothing to press; you watch it live. It does this by running Needle's
 own network over Needle's own weights, read from a microSD card.
 
 ```
@@ -17,7 +21,7 @@ WORKING
 
 Model:
 Needle 3, 2-layer ladder rung (blocks 0 and 19 of the shipped 20), 2-bit Cactus
-Quants. Demo model: that rung LoRA-tuned on the four-tool task with Needle's own
+Quants. Benchmark model: that rung LoRA-tuned on the four-action task with Needle's own
 training loop through 2-bit numerics. Every tensor except the 10 attention
 matrices is byte-identical to the official 2-bit rung. The untuned official
 rung also runs on the board.
@@ -58,8 +62,12 @@ kv_bits allows) or move the q/k/v work buffers into the ESP32's spare IRAM
 (integer access only).
 ```
 
-The four-action demo and an autonomous creature (stretch goal, below) are both
-on the card; the debug screen switches between them.
+The figures above are for the four-action benchmark model (`eat`, `sleep`,
+`explore`, `rest`), which also runs on the board as a tap-to-set demo. The
+creature is a second fine-tune of the same rung with its own tools; it scores
+24/24 on its own benchmark on the Mac, on both the shipped engine and this
+runtime, and 15/15 on the board before that run was stopped. One card can hold
+both, and the debug screen switches between them.
 
 ![The creature screen in its five states, rendered by the firmware's own UI code](docs/screens/creature_sheet.png)
 
@@ -69,7 +77,7 @@ Cactus Compute. See NOTICE.*
 
 ## What is genuinely running on the ESP32
 
-Everything between the touchscreen and the decision:
+Everything between the creature's state and the decision:
 
 - **Tokeniser**: SentencePiece BPE, decoded from the RAW tensor inside the
   `.cact` archive. Its surface index is built on the board at first boot.
@@ -96,9 +104,10 @@ Everything between the touchscreen and the decision:
 - No rules pick the action.
 - No answers are prerecorded.
 - There is no remote call.
-- The sentence the board feeds Needle, e.g. "I'm not hungry, tired and bored.",
-  is built from the three sliders by fixed word buckets
-  (`firmware/app/state_text.cpp`); Needle decides from that text alone.
+- The sentence the board feeds Needle, e.g. "I'm a little hungry, rested,
+  very curious and content.", is built from the stats by fixed word buckets
+  (`firmware/app/creature.cpp`, and `state_text.cpp` for the demo). Needle
+  decides from that text alone.
 
 ### How we know it is Needle, bit for bit where it can be
 
@@ -139,6 +148,32 @@ Everything between the touchscreen and the decision:
 
 The full story, with numbers, is in `log.md`, `docs/feasibility.md`,
 `docs/memory-budget.md`, `docs/architecture.md` and `bench/RESULTS.md`.
+
+## Using it
+
+**The creature** (the default profile). It runs by itself from power-on:
+- The left panel shows the creature and whatever it's doing: an apple for
+  `eat`, drifting "z"s for `sleep`, a magnifier for `explore`, a bouncing
+  ball for `play`. Its colour follows its mood.
+- On the right are the four stats, the current action and the seconds it has
+  left.
+- The line underneath shows Needle's last call and its reasoning, e.g.
+  `play()  'sad' -> play`, and anything that happens in the world.
+- While Needle thinks, the line shows its progress and then its reasoning as
+  it is generated, and the LED blinks yellow. The LED turns green when the
+  decision lands. The world keeps going while it thinks.
+- The footer shows the last decision's number and time.
+- **Tap the header** for the debug screen: layers, model size, free and peak
+  RAM, tokens per second, inferences, average and last time, and SD and flash
+  bytes read. Tap anywhere to go back. The **switch to …** button (bottom
+  right) swaps to the other profile and restarts.
+
+**The four-action demo.** You set the state and ask:
+- Tap a value (hunger, energy, curiosity) to step it through 10, 30, 50, 70
+  and 90.
+- Tap **THINK**. About 37 seconds later it shows the decision and its
+  reasoning.
+- **AGAIN** returns to the values. **info** opens the same debug screen.
 
 ## Layout
 
@@ -183,7 +218,18 @@ uv venv -p 3.12 .venv && uv pip install --python .venv/bin/python -e "vendor/nee
 .venv/bin/python tools/slice_cact.py models/needle3.cact 2 models/needle3-L2.cact
 ```
 
-Optionally rebuild the tuned demo model (about 25 minutes on an M-series Mac):
+The two fine-tuned models aren't downloadable; build them from the sliced
+rung (about 25 minutes each on an M-series Mac). The creature:
+
+```bash
+.venv/bin/python tools/make_creature4_data.py --n 2400 --out bench/creature4_train.jsonl
+```
+
+```bash
+.venv/bin/python tools/finetune_rung_2bit.py bench/creature4_train.jsonl --base models/needle3-L2.cact --epochs 10 --rank 64 --alpha 128 --out models/needle3-L2-creature4-2bit.cact
+```
+
+The four-action demo and benchmark model:
 
 ```bash
 .venv/bin/python tools/make_creature_data.py --n 2000 --balanced --out bench/creature_train_bal.jsonl
@@ -199,12 +245,22 @@ Build the firmware (the first time, also `idf.py set-target esp32`):
 source ~/esp/esp-idf/export.sh && idf.py build
 ```
 
-Prepare the card and the flash overlay. This writes `sdcard/needle/…` (or
-straight to a mounted card with `--card /Volumes/NAME`) and
-`build/needle_overlay.bin`:
+Prepare the card and the flash overlay. Each run writes one profile's folder
+(`creature/` or `needle/`, into `sdcard/` or straight onto a mounted card with
+`--card /Volumes/NAME`), sets `profile.txt` to boot into it, and writes
+`build/needle_overlay.bin`. The overlay is the same for both models, so a card
+can hold both. Prepare the one you want to boot into last.
+
+The creature:
 
 ```bash
-.venv/bin/python tools/prepare_sd.py models/needle3-L2-creature-2bit-r64.cact --label "2 layers, tuned 2-bit" --card "/Volumes/NO NAME"
+.venv/bin/python tools/prepare_sd.py models/needle3-L2-creature4-2bit.cact --profile creature --label "creature, 2 layers" --card "/Volumes/NO NAME"
+```
+
+The four-action demo:
+
+```bash
+.venv/bin/python tools/prepare_sd.py models/needle3-L2-creature-2bit-r64.cact --profile needle --label "2 layers, tuned 2-bit" --card "/Volumes/NO NAME"
 ```
 
 Flash everything: bootloader, partition table, app and overlay.
@@ -221,17 +277,18 @@ To change the model without taking the card out, push it over USB. It is
 CRC-checked per 512 B, at 460800 baud, and takes about 5 minutes for 8.6 MB:
 
 ```bash
-.venv/bin/python tools/push_file.py /dev/cu.usbserial-1130 models/needle3-L2-creature-2bit-r64.cact /sdcard/needle/needle3.cact
+.venv/bin/python tools/push_file.py /dev/cu.usbserial-1130 models/needle3-L2-creature4-2bit.cact /sdcard/creature/needle3.cact
 ```
 
-Then flash the matching overlay (`prepare_sd.py` writes it) at `0x90000`.
+A model with a different directory needs its own overlay flashed at
+`0x90000` (`prepare_sd.py` writes it). The two fine-tunes here share one.
 
 ## Serial console (115200 baud)
 
 | command | what it does |
 |---|---|
 | `say <text>` | run Needle on any sentence; prints the result JSON |
-| `set <hunger> <energy> <curiosity>` | set the sliders and THINK (drives the screen) |
+| `set <hunger> <energy> <curiosity>` | demo only: set the values and THINK (drives the screen) |
 | `bench` | the 24-case benchmark on the board (the creature's own set in creature mode) |
 | `stats` | inferences, timing, bytes read, heap |
 | `sdbench` / `sdraw` | SD throughput through the file layer / raw sectors |
@@ -242,26 +299,29 @@ counts, timings, bytes and reads, heap), plus `[io]` and `[prof]` breakdowns.
 Boot prints free heap, minimum free heap, largest free block, firmware size
 and model file size.
 
-## The autonomous creature (stretch goal)
+## How the creature works
 
-`/sdcard/creature/` holds a second fine-tune of the same 2-layer 2-bit rung
-with four stats (hunger, energy, curiosity, happiness) and four tools (`eat`,
-`sleep`, `explore`, `play`). The world drifts every second, and now and then
-something happens: a storm, a butterfly, a friend waves. When the current
-action runs out, the creature describes itself ("I'm a little hungry,
-rested, very curious and content.") and Needle picks the next action on the
-board. The creature's face and props follow its mood and action, the reasoning
-appears live, and the debug screen (tap the header) shows layers, model size,
-free RAM, tokens/s, inferences, average time and SD bytes. The button there
-switches between the demo and the creature.
+`/sdcard/creature/` holds a second fine-tune of the same 2-layer 2-bit rung,
+trained on four stats (hunger, energy, curiosity, happiness) and four tools
+(`eat`, `sleep`, `explore`, `play`). The world (`firmware/app/creature.cpp`)
+drifts every second. Now and then something happens: a storm, a butterfly, a
+friend waves. Each action Needle picks runs for 25 seconds and pushes its
+stats back. Then the creature describes itself ("I'm a little hungry, rested,
+very curious and content.") and Needle picks again. The drift rates were
+tuned in simulation (`tools/sim_creature.py`) so its mood moves between
+happy, content and sad rather than sitting at happy. It never chooses by
+rule; every action comes from the model.
 
 ## Limitations
 
-- About 37 s per decision; the world pauses while the creature thinks.
+- About 37 s per decision. The world keeps drifting while the creature
+  thinks, so it acts on how it felt when it started thinking.
 - The fine-tunes only know their four tools and the phrasings they were
   trained on. Number-style prompts ("hunger: 95") are not reliable.
 - Locally tuned models have no calibrated confidence head (Needle drops it
   too), so the screen shows the grammar-renormalised call probability.
+- The creature's model was trained on its own sentence pattern only; other
+  phrasing sent over `say` is untested.
 - Heap headroom is about 10 KB. The KV cache is sized to the tool prefix,
   which caps a turn at about 24 tokens plus the 12-token reasoning budget.
 - The shipped engine's exact confidence figure is not reproduced (see above).

@@ -78,7 +78,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("model")
     ap.add_argument("--label", default=None)
-    ap.add_argument("--tools", default=os.path.join(ROOT, "bench", "tools.min.json"))
+    ap.add_argument("--profile", choices=("creature", "needle"), default="creature",
+                    help="creature: the autonomous pet (/creature); needle: the four-action tap-to-set demo (/needle)")
+    ap.add_argument("--tools", default=None, help="tool list (default: the profile's own)")
     ap.add_argument("--card", default=os.path.join(ROOT, "sdcard"), help="SD card root (a mounted card or a folder)")
     ap.add_argument("--image", default=None, help="also build a FAT image of the card (QEMU)")
     ap.add_argument("--image-mb", type=int, default=32)
@@ -86,8 +88,9 @@ def main():
 
     raw, h, recs, dir_hash = directory(a.model)
     layers = h[10]
-    d = os.path.join(a.card, "needle")
+    d = os.path.join(a.card, a.profile)
     os.makedirs(d, exist_ok=True)
+    tools = a.tools or os.path.join(ROOT, "bench", "creature_tools.min.json" if a.profile == "creature" else "tools.min.json")
     for stale in ("tok.idx", "prefix.snap"):  # built by the device for its archive
         p = os.path.join(d, stale)
         if os.path.exists(p):
@@ -95,12 +98,13 @@ def main():
     shutil.copyfile(a.model, os.path.join(d, "needle3.cact"))
     label = a.label or f"{layers} layers"
     open(os.path.join(d, "label.txt"), "w").write(label + "\n")
-    shutil.copyfile(a.tools, os.path.join(d, "tools.json"))
+    shutil.copyfile(tools, os.path.join(d, "tools.json"))
+    open(os.path.join(a.card, "profile.txt"), "w").write(a.profile + "\n")  # the firmware boots into this one
     blob, table = overlay(raw, recs, dir_hash, layers)
     os.makedirs(os.path.join(ROOT, "build"), exist_ok=True)
     out = os.path.join(ROOT, "build", "needle_overlay.bin")
     open(out, "wb").write(blob)
-    print(f"card     {d}: needle3.cact {len(raw):,} B ({layers} layers), label '{label}'")
+    print(f"card     {d}: profile '{a.profile}', needle3.cact {len(raw):,} B ({layers} layers), label '{label}'")
     print(f"overlay  {out}: {len(blob):,} B, archive hash {dir_hash:08x}")
     print(f"         {len(table)} tensors, {sum(t[1] for t in table):,} B")
     if a.image:  # raw FAT16 image of the card for QEMU's sd-card (mtools)
@@ -109,9 +113,10 @@ def main():
         with open(a.image, "wb") as f:
             f.truncate(a.image_mb * 1024 * 1024)
         subprocess.check_call(["mformat", "-i", a.image, "-F" if a.image_mb > 2048 else "-v", "NEEDLE", "::"])
-        subprocess.check_call(["mmd", "-i", a.image, "::/needle"])
+        subprocess.check_call(["mmd", "-i", a.image, f"::/{a.profile}"])
         for name in sorted(os.listdir(d)):
-            subprocess.check_call(["mcopy", "-i", a.image, os.path.join(d, name), f"::/needle/{name}"])
+            subprocess.check_call(["mcopy", "-i", a.image, os.path.join(d, name), f"::/{a.profile}/{name}"])
+        subprocess.check_call(["mcopy", "-i", a.image, os.path.join(a.card, "profile.txt"), "::/profile.txt"])
         print(f"image    {a.image}: {a.image_mb} MB FAT")
     print("flash    python -m esptool --chip esp32 write_flash 0x90000 build/needle_overlay.bin")
 
