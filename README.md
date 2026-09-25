@@ -12,6 +12,8 @@ has chosen what it does next: `eat()`, `sleep()`, `explore()` or `play()`.
 There is nothing to press; you watch it live. It does this by running Needle's
 own network over Needle's own weights, read from a microSD card.
 
+**Watch it:** [the 2½-minute explainer on YouTube](https://youtu.be/GVSNnOFtazo).
+
 ```
 RESULT
 ------

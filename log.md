@@ -76,3 +76,8 @@
 - README second pass: leads with the creature, a "Using it" section with the real touch targets (header → debug; switch button; the tap-to-set demo), stale claims fixed. `prepare_sd.py --profile creature|needle` now writes either profile and `profile.txt`; checked that one overlay serves both fine-tunes (byte-identical).
 - YouTube: draft GVSNnOFtazo filled in (title, description with chapters and repo link, tags, Science & Technology, not for kids, no paid promotion, AI use: Yes, English (UK)) and the SRT uploaded with timing. Left private at the Visibility step for Christian to publish. Metadata kept in `video/youtube.md`.
 - Next: Christian publishes the video; then add the video link to the README and the blog; Medium draft still waiting on his go-ahead.
+
+## 2026-09-25 — Medium draft
+- Blog gained a process diagram (`docs/blog/img/diagram-loop.png`, drawn by `tools/make_blog_diagram.py` in the charts' style, labels taken from the firmware) showing the loop: world drifts → it describes itself → Needle decides on the ESP32 → the action runs. Drawn in code rather than ChatGPT so the labels are exact.
+- Medium draft created (unpublished): https://medium.com/p/a3c8ec0a824b/edit. Pasted as HTML; Medium re-hosted all five images from the public repo.
+- Next: Christian reviews and publishes the Medium post and the YouTube video; then cross-link them (video link in README and blog, post link in the video description).
