@@ -12,7 +12,7 @@ has chosen what it does next: `eat()`, `sleep()`, `explore()` or `play()`.
 There is nothing to press; you watch it live. It does this by running Needle's
 own network over Needle's own weights, read from a microSD card.
 
-**Watch it:** [the 2½-minute explainer on YouTube](https://youtu.be/GVSNnOFtazo).
+**Watch it:** [the 2½-minute explainer on YouTube](https://youtu.be/GVSNnOFtazo). **Read it:** [the write-up on Medium](https://medium.com/@christian.graham_49279/i-put-an-ai-agent-on-a-15-touchscreen-heres-what-it-means-for-the-future-a3c8ec0a824b).
 
 ```
 RESULT
