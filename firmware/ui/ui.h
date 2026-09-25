@@ -49,7 +49,7 @@ UiHit ui_debug_hit(int x, int y);   // HIT_MODE on the mode button, else HIT_BAC
 void ui_creature(const CreatureWorld& w, const UiInfo& info);           // whole screen
 void ui_creature_stats(const CreatureWorld& w);                         // the four bars
 void ui_creature_face(const CreatureWorld& w, uint32_t ms, bool thinking); // the creature, at time ms
-void ui_creature_status(const char* big, const char* small, uint16_t colour);
-void ui_creature_line(const char* text);                                // reasoning / progress
+void ui_creature_status(const char* big, uint16_t colour, const char* right, const char* why);
+void ui_creature_bubble(const char* text);  // what it last said (and told Needle), along the bottom
+void ui_creature_tally(int decisions, float last_s);  // "#12 in 37 s", top right
 UiHit ui_creature_hit(int x, int y);
-void ui_creature_footer(const UiInfo& info, int decisions, float last_s);

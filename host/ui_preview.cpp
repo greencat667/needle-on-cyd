@@ -116,27 +116,26 @@ static int clip(const char* dir, const char* act, float secs, int fps) {
     w.events = false;
     ui_creature(w, info);
     const char* names[4] = {"EAT", "SLEEP", "EXPLORE", "PLAY"};
-    const char* why[4] = {"eat()  'hungry' -> eat", "sleep()  'exhausted' -> sleep",
-                          "explore()  'very curious' -> explore", "play()  'sad' -> play"};
+    const char* why[4] = {"'hungry' -> eat", "'exhausted' -> sleep", "'very curious' -> explore",
+                          "'sad' -> play"};
+    char said[128];
+    creature_text(w.snapshot(), thinking ? EV_FRIEND : -1, said, sizeof(said));
+    ui_creature_bubble(said);
+    ui_creature_tally(12, 37);
     int n = (int)(secs * fps);
     for (int f = 0; f < n; f++) {
         const float t = f / (float)fps;
         if (a >= 0) {
             w.tick(1.0f / fps);
             if (w.action_left < 1) w.action_left = 25;  // keep the action going for the clip
-            char sm[24];
-            snprintf(sm, sizeof(sm), "%.0f s to go", w.action_left);
+            char sm[16];
+            snprintf(sm, sizeof(sm), "%.0f s", w.action_left);
             if (f % fps == 0) {
                 ui_creature_stats(w);
-                ui_creature_status(names[a], sm, rgb(61, 220, 151));
-                ui_creature_line(why[a]);
-                ui_creature_footer(info, 12, 37);
+                ui_creature_status(names[a], rgb(61, 220, 151), sm, why[a]);
             }
         } else if (f % fps == 0) {
-            ui_creature_status("THINKING", "Needle, on-device", rgb(255, 210, 63));
-            char b[48];
-            snprintf(b, sizeof(b), "thinking on-device... position %d", 131 + (int)t);
-            ui_creature_line(b);
+            ui_creature_status("THINKING", rgb(255, 210, 63), nullptr, t < secs / 2 ? "reading..." : "'friend' -> play");
         }
         ui_creature_face(w, (uint32_t)(t * 1000), thinking);
         char name[64];
@@ -151,15 +150,14 @@ int main(int argc, char** argv) {
     const char* dir = argc > 1 ? argv[1] : ".";
     UiInfo info = {2, 8.6f, 10, "2 layers, creature, 2-bit"};
     struct { const char* name; float h, e, c, p; int act; float left; bool thinking; const char* big;
-             const char* small; const char* line; } S[] = {
-        {"creature_explore", 15, 85, 88, 72, ACT_EXPLORE, 14, false, "EXPLORE", "14 s to go",
-         "explore()  'very curious' -> explore"},
-        {"creature_eat", 88, 60, 30, 55, ACT_EAT, 20, false, "EAT", "20 s to go", "eat()  'starving' -> eat"},
-        {"creature_sleep", 20, 12, 40, 50, ACT_SLEEP, 18, false, "SLEEP", "18 s to go",
-         "sleep()  'exhausted' -> sleep"},
-        {"creature_play", 12, 60, 20, 18, ACT_PLAY, 9, false, "PLAY", "9 s to go", "play()  'sad' -> play"},
-        {"creature_thinking", 40, 45, 70, 50, ACT_NONE, 0, true, "THINKING", "Needle, on-device",
-         "thinking on-device... position 131"},
+             const char* right; const char* why; int event; } S[] = {
+        {"creature_explore", 15, 85, 88, 72, ACT_EXPLORE, 14, false, "EXPLORE", "14 s", "'very curious' -> explore", -1},
+        {"creature_eat", 88, 60, 30, 55, ACT_EAT, 20, false, "EAT", "20 s", "'starving' -> eat", -1},
+        {"creature_sleep", 20, 12, 40, 50, ACT_SLEEP, 18, false, "SLEEP", "18 s", "'exhausted' -> sleep", -1},
+        {"creature_play", 12, 60, 20, 18, ACT_PLAY, 9, false, "PLAY", "9 s", "'sad' -> play", -1},
+        {"creature_thinking", 40, 45, 70, 50, ACT_NONE, 0, true, "THINKING", nullptr, "reading...", -1},
+        {"creature_speaking", 30, 35, 70, 80, ACT_NONE, 0, true, "THINKING", nullptr, "'friend' -> play", EV_FRIEND},
+        {"creature_speaking_long", 90, 15, 70, 20, ACT_NONE, 0, true, "THINKING", nullptr, "'something tasty' -> eat", EV_TASTY},
     };
     for (auto& s : S) {
         CreatureWorld w;
@@ -167,9 +165,11 @@ int main(int argc, char** argv) {
         w.action = s.act; w.action_left = s.left;
         ui_creature(w, info);
         ui_creature_face(w, 1400, s.thinking);
-        ui_creature_status(s.big, s.small, s.thinking ? rgb(255, 210, 63) : rgb(61, 220, 151));
-        ui_creature_line(s.line);
-        if (!s.thinking) ui_creature_footer(info, 3, 37.2f);
+        ui_creature_status(s.big, s.thinking ? rgb(255, 210, 63) : rgb(61, 220, 151), s.right, s.why);
+        char said[128];
+        creature_text(w.snapshot(), s.event, said, sizeof(said));
+        ui_creature_bubble(said);
+        ui_creature_tally(3, 37.2f);
         save(dir, s.name);
     }
     return 0;

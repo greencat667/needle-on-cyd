@@ -265,16 +265,15 @@ static void run_creature_bench() {
         const CreatureCase& c = kCreatureBench[i];
         CreatureState s = {c.hunger, c.energy, c.curiosity, c.happiness};
         char text[128];
-        creature_text(s, text, sizeof(text));
+        creature_text(s, c.event, text, sizeof(text));
         NeedleResult r;
         if (!run_text(text, &r, false)) continue;
         const char* tool = tool_of(r);
         bool hit = *tool && strstr(c.expected, tool) != nullptr;
         ok += hit;
         t += r.total_us / 1e6;
-        printf("[bench] %2d/%d  h%3d e%3d c%3d p%3d  -> %-8s expected %-8s %s  %.1f s\n", i + 1,
-               kCreatureBenchN, c.hunger, c.energy, c.curiosity, c.happiness, *tool ? tool : "[]",
-               c.expected, hit ? "OK" : "MISS", r.total_us / 1e6);
+        printf("[bench] %2d/%d  \"%s\"  -> %-8s expected %-8s %s  %.1f s\n", i + 1, kCreatureBenchN, text,
+               *tool ? tool : "[]", c.expected, hit ? "OK" : "MISS", r.total_us / 1e6);
     }
     printf("[bench] accuracy %d/%d, mean %.1f s per decision\n", ok, kCreatureBenchN, t / kCreatureBenchN);
 }
@@ -469,14 +468,17 @@ static void switch_profile() {
 static CreatureWorld g_world;
 static int g_frame = 0;
 
-static void creature_progress(void*, int phase, int step, const char* text) {
+static char g_said[128] = "";  // the creature's last words (the bubble)
+static char g_why[48] = "";    // Needle's reasoning for the current action
+static uint64_t g_think_tick = 0;  // the world's clock while Needle thinks
+
+static void creature_progress(void*, int phase, int, const char* text) {
     static uint64_t last = 0;
     const uint64_t now = nr_micros();
     char b[48];
-    static uint64_t last_tick = 0;
-    if (phase == 0 && now - last_tick >= 1000000) {  // the world goes on while it thinks
-        g_world.tick(last_tick ? (now - last_tick) / 1e6f : 1.0f);
-        last_tick = now;
+    if (phase == 0 && now - g_think_tick >= 1000000) {  // the world goes on while it thinks
+        g_world.tick((now - g_think_tick) / 1e6f);
+        g_think_tick = now;
         ui_creature_stats(g_world);
     }
     if (phase == 0 && now - last > 250000) {  // one frame per forward position at most
@@ -484,19 +486,30 @@ static void creature_progress(void*, int phase, int step, const char* text) {
         ui_creature_face(g_world, (uint32_t)(now / 1000), true);
         ++g_frame;
         led_set((g_frame & 1) ? LED_YELLOW : LED_OFF);
-        snprintf(b, sizeof(b), "thinking on-device... position %d", step);
-        ui_creature_line(b);
+        snprintf(b, sizeof(b), "reading%.*s", g_frame % 4, "...");  // taking in what it said
+        ui_creature_status("THINKING", YELLOW_UI, nullptr, b);
     } else if (phase == 2 && text) {
-        snprintf(b, sizeof(b), "<think> %s", text);
-        ui_creature_line(b);
+        ui_creature_status("THINKING", YELLOW_UI, nullptr, text);  // its reasoning, as it comes
     }
+}
+
+static const char* const ACT_NAME[4] = {"EAT", "SLEEP", "EXPLORE", "PLAY"};
+
+static void creature_show_action() {
+    char sm[16];
+    snprintf(sm, sizeof(sm), "%.0f s", g_world.action_left);
+    ui_creature_status(g_world.action >= 0 ? ACT_NAME[g_world.action] : "IDLE", GREEN_UI, sm, g_why);
 }
 
 static void creature_decide() {
     CreatureState s = g_world.snapshot();
-    char text[128];
-    creature_text(s, text, sizeof(text));
-    ui_creature_status("THINKING", "Needle, on-device", YELLOW_UI);
+    creature_text(s, g_world.pending, g_said, sizeof(g_said));
+    g_world.pending = -1;
+    g_world.event[0] = 0;
+    g_world.quiet = true;  // one thing at a time: nothing new happens until it has decided
+    g_think_tick = nr_micros();  // time before this was ticked by creature_loop
+    ui_creature_bubble(g_said);  // what it tells Needle, said out loud
+    ui_creature_status("THINKING", YELLOW_UI, nullptr, "Needle, on-device");
     ui_creature_face(g_world, (uint32_t)(nr_micros() / 1000), true);
     NeedleOptions opt;
     opt.think_budget = CONFIG_NEEDLE_THINK_BUDGET;
@@ -504,10 +517,11 @@ static void creature_decide() {
     opt.progress = creature_progress;
     NeedleResult r;
     led_set(LED_YELLOW);
-    bool ok = g_sess.run(text, opt, &r);
+    bool ok = g_sess.run(g_said, opt, &r);
     led_set(ok ? LED_GREEN : LED_RED);
+    g_world.quiet = false;
     if (!ok) {
-        ui_creature_status("ERROR", "see serial", RED_UI);
+        ui_creature_status("ERROR", RED_UI, nullptr, "see serial");
         g_world.start(ACT_NONE, 10);
         return;
     }
@@ -516,22 +530,17 @@ static void creature_decide() {
     g_tot.seconds += g_tot.last;
     g_tot.tokens += r.generated;
     g_tot.decode_s += r.decode_us / 1e6;
-    print_result(text, r);
+    print_result(g_said, r);
     const char* tool = tool_of(r);
     const int act = creature_action_of(tool);
     g_world.start(act, 25);
-    char up[16], sm[24];
-    int i = 0;
-    for (; tool[i] && i < 14; i++) up[i] = (char)(tool[i] - 32 * (tool[i] >= 'a' && tool[i] <= 'z'));
-    up[i] = 0;
-    snprintf(sm, sizeof(sm), "chosen in %.0f s", r.total_us / 1e6);
-    ui_creature_status(i ? up : "NOTHING", sm, i ? GREEN_UI : RED_UI);
-    ui_creature_footer(ui_info(), g_tot.inferences, (float)g_tot.last);
-    const char* why = r.reasoning;
-    while (*why == '\n' || *why == ' ') why++;
-    char line[64];
-    snprintf(line, sizeof(line), "%s()  %.40s", i ? tool : "[]", why);
-    ui_creature_line(line);
+    snprintf(g_why, sizeof(g_why), "%.47s", r.reasoning);
+    if (act < 0) {
+        ui_creature_status("NOTHING", RED_UI, nullptr, g_why);
+    } else {
+        creature_show_action();
+    }
+    ui_creature_tally(g_tot.inferences, (float)g_tot.last);
 }
 
 static void creature_loop() {
@@ -553,18 +562,11 @@ static void creature_loop() {
             last = now;
             g_world.tick(dt);
             ui_creature_stats(g_world);
-            if (g_world.event[0]) {
-                ui_creature_line(g_world.event);
-                g_world.event[0] = 0;
-            }
-            if (g_world.action_left <= 0) {
+            if (g_world.action_left <= 0) {  // done, or something happened: it speaks, Needle decides
                 creature_decide();
                 last = nr_micros();  // the world ticked inside creature_progress
             } else {
-                char sm[16];
-                snprintf(sm, sizeof(sm), "%.0f s to go", g_world.action_left);
-                const char* names[4] = {"EAT", "SLEEP", "EXPLORE", "PLAY"};
-                ui_creature_status(g_world.action >= 0 ? names[g_world.action] : "IDLE", sm, GREEN_UI);
+                creature_show_action();
             }
         }
         int x, y;
@@ -574,6 +576,8 @@ static void creature_loop() {
                 if (ui_debug_hit(x, y) == HIT_MODE) switch_profile();
                 debug = false;
                 ui_creature(g_world, ui_info());
+                if (*g_said) ui_creature_bubble(g_said);
+                if (g_tot.inferences) ui_creature_tally(g_tot.inferences, (float)g_tot.last);
                 last = nr_micros();
             } else if (ui_creature_hit(x, y) == HIT_DEBUG) {
                 show_debug();
@@ -646,7 +650,9 @@ extern "C" void app_main(void) {
     int prefix = g_tok.encode(text, ids, 400) + 1;
     if (prefix <= 1) fail("TOOLS TOO LONG", "the tool prefix does not fit");
     // turn text <= 24 tokens + <think>, reasoning, </think>\n<tool_call>, call <= 8
-    const uint32_t ctx = (uint32_t)prefix + 25 + CONFIG_NEEDLE_THINK_BUDGET + 3 + 8;
+    // the user turn: up to 36 tokens ("A storm is rolling in! I'm starving, exhausted, very
+    // curious and sad." is 34); the four-action demo's sentences are shorter
+    const uint32_t ctx = (uint32_t)prefix + (g_creature ? 36 : 25) + CONFIG_NEEDLE_THINK_BUDGET + 3 + 8;
     nr_log("[boot] tool prefix %d tokens; context %u positions\n", prefix, (unsigned)ctx);
 
     report_memory("before model");

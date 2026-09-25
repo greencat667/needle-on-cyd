@@ -256,7 +256,7 @@ void ui_debug(const UiStats& st, const char* mode_name) {
 UiHit ui_debug_hit(int x, int y) { return (y >= 206 && x >= 160) ? HIT_MODE : HIT_BACK; }
 
 // ---- the creature --------------------------------------------------------------
-static const int PX = 8, PY = 50, PW = 152, PH = 146;  // its panel
+static const int PX = 8, PY = 46, PW = 152, PH = 139;  // its panel (the speech bubble goes below)
 
 static uint16_t mood_colour(float happiness) {
     return happiness > 65 ? rgb(255, 210, 63) : happiness > 30 ? rgb(120, 214, 140) : rgb(110, 150, 230);
@@ -443,7 +443,7 @@ static const uint16_t STAT_COL[4] = {rgb(255, 140, 90), rgb(61, 220, 151), rgb(9
 void ui_creature_stats(const CreatureWorld& w) {
     const float v[4] = {w.hunger, w.energy, w.curiosity, w.happiness};
     for (int i = 0; i < 4; i++) {
-        const int y = 52 + i * 27;
+        const int y = 48 + i * 25;
         lcd_fill(166, y, 146, 25, BG);
         lcd_text(166, y, STAT_NAME[i], f_small, MUTED, BG);
         char b[8];
@@ -455,19 +455,71 @@ void ui_creature_stats(const CreatureWorld& w) {
     }
 }
 
-void ui_creature_status(const char* big, const char* small, uint16_t colour) {
-    lcd_round_rect(166, 158, 146, 40, 8, PANEL);
-    lcd_text(174, 160, big, f_body, colour, PANEL);
-    if (small) lcd_text(174, 180, small, f_small, MUTED, PANEL);
+// The action (or THINKING), its seconds left on the right, and under it
+// Needle's reasoning: "'friend' -> play", shortened to "'something tasty'"
+// or plain "something tasty" when the whole thing will not fit.
+void ui_creature_status(const char* big, uint16_t colour, const char* right, const char* why) {
+    lcd_round_rect(166, 149, 146, 36, 8, PANEL);
+    lcd_text(174, 150, big, f_body, colour, PANEL);
+    if (right) lcd_text(304 - lcd_text_width(right, f_small), 154, right, f_small, MUTED, PANEL);
+    if (!why) return;
+    while (*why == '\n' || *why == ' ') why++;
+    const int maxw = 130;
+    char b[48];
+    snprintf(b, sizeof(b), "%s", why);
+    for (char* p = b; *p; p++) if (*p == '\n') *p = ' ';
+    if (lcd_text_width(b, f_small) > maxw && b[0] == '\'') {
+        char* close = strchr(b + 1, '\'');
+        if (close) close[1] = 0;                          // just the quoted words
+        if (lcd_text_width(b, f_small) > maxw) {           // without the quotes
+            if (close) *close = 0;
+            memmove(b, b + 1, strlen(b));
+        }
+    }
+    while (*b && lcd_text_width(b, f_small) > maxw) b[strlen(b) - 1] = 0;
+    lcd_text(174, 168, b, f_small, CYAN, PANEL);
 }
 
-void ui_creature_line(const char* text) {
-    lcd_fill(0, 200, LCD_W, 18, BG);
-    char b[44];
-    strncpy(b, text, 40);
-    b[40] = 0;
-    for (char* p = b; *p; p++) if (*p == '\n') *p = ' ';
-    lcd_text_center(0, 202, LCD_W, b, f_small, CYAN, BG);
+// A speech bubble along the bottom, its tail pointing up at the creature: the
+// last thing it said, which is the sentence Needle decides from. It stays
+// until the creature speaks again.
+void ui_creature_bubble(const char* text) {
+    const int bx = 8, by = 191, bw = LCD_W - 16, bh = LCD_H - 1 - 191, pad = 9, lh = 15, maxw = bw - 2 * pad;
+    const uint16_t ink = rgb(20, 24, 40);
+    lcd_fill(0, 186, LCD_W, LCD_H - 186, BG);
+    lcd_round_rect(bx, by, bw, bh, 9, TEXT);
+    for (int y = 186; y < by; y++) {  // the tail, up towards the creature
+        const int half = (y - 186) * 7 / 5;
+        lcd_fill(58 - half, y, 2 * half + 1, 1, TEXT);
+    }
+    char lines[3][96];
+    int n = 0;
+    char cur[96] = "";
+    const char* p = text;
+    while (*p) {
+        while (*p == ' ') p++;
+        const char* q = p;
+        while (*q && *q != ' ') q++;
+        if (q == p) break;
+        char trial[96];
+        snprintf(trial, sizeof(trial), "%s%s%.*s", cur, *cur ? " " : "", (int)(q - p), p);
+        if (*cur && lcd_text_width(trial, f_small) > maxw) {
+            if (n == 2) {  // no fourth line: end this one with an ellipsis
+                while (*cur && lcd_text_width(cur, f_small) > maxw - lcd_text_width("...", f_small))
+                    cur[strlen(cur) - 1] = 0;
+                strcat(cur, "...");
+                break;
+            }
+            snprintf(lines[n++], sizeof(lines[0]), "%s", cur);
+            snprintf(cur, sizeof(cur), "%.*s", (int)(q - p), p);
+        } else {
+            snprintf(cur, sizeof(cur), "%s", trial);
+        }
+        p = q;
+    }
+    if (*cur && n < 3) snprintf(lines[n++], sizeof(lines[0]), "%s", cur);
+    const int top = by + (bh - n * lh) / 2 + 1;
+    for (int i = 0; i < n; i++) lcd_text(bx + pad, top + i * lh, lines[i], f_small, ink, TEXT);
 }
 
 void ui_creature(const CreatureWorld& w, const UiInfo& info) {
@@ -475,19 +527,15 @@ void ui_creature(const CreatureWorld& w, const UiInfo& info) {
     header("creature");
     ui_creature_face(w, 0, false);
     ui_creature_stats(w);
-    ui_creature_status("waking up", nullptr, TEXT);
-    ui_creature_footer(info, 0, 0);
+    ui_creature_status("waking up", TEXT, nullptr, nullptr);
 }
 
-// Facts rather than a slogan: where it runs, the model, and how it is going.
-void ui_creature_footer(const UiInfo& info, int decisions, float last_s) {
-    char b[64];
-    if (decisions)
-        snprintf(b, sizeof(b), "on-device \xB7 Wi-Fi off \xB7 #%d in %.0f s", decisions, last_s);
-    else
-        snprintf(b, sizeof(b), "on-device \xB7 Wi-Fi off \xB7 %d layers", info.layers);
-    lcd_fill(0, LCD_H - 18, LCD_W, 18, BG);
-    lcd_text_center(0, LCD_H - 16, LCD_W, b, f_small, MUTED, BG);
+// How it is going, top right in place of the old footer: "#12 in 37 s".
+void ui_creature_tally(int decisions, float last_s) {
+    char b[32];
+    snprintf(b, sizeof(b), "#%d in %.0f s", decisions, last_s);
+    lcd_fill(200, 10, LCD_W - 200, 28, BG);
+    lcd_text(LCD_W - 12 - lcd_text_width(b, f_small), 18, b, f_small, MUTED, BG);
 }
 
 UiHit ui_creature_hit(int, int y) { return y < 44 ? HIT_DEBUG : HIT_NONE; }

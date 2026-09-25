@@ -67,8 +67,9 @@ kv_bits allows) or move the q/k/v work buffers into the ESP32's spare IRAM
 The figures above are for the four-action benchmark model (`eat`, `sleep`,
 `explore`, `rest`), which also runs on the board as a tap-to-set demo. The
 creature is a second fine-tune of the same rung with its own tools; it scores
-24/24 on its own benchmark on the Mac, on both the shipped engine and this
-runtime, and 15/15 on the board before that run was stopped. One card can hold
+30/30 on its own benchmark (20 plain states, 10 with a world event) on the
+Mac, on both the shipped engine and this runtime, with identical reasoning on
+every case. One card can hold
 both, and the debug screen switches between them.
 
 ![The creature screen in its five states, rendered by the firmware's own UI code](docs/screens/creature_sheet.png)
@@ -161,9 +162,15 @@ The full story, with numbers, is in `log.md`, `docs/feasibility.md`,
   left.
 - The line underneath shows Needle's last call and its reasoning, e.g.
   `play()  'sad' -> play`, and anything that happens in the world.
+- When it finishes an activity, or something happens in the world, it
+  speaks: a speech bubble over the stats shows the sentence it hands to
+  Needle, e.g. "A friend is waving hello! I'm tired and very curious."
+  While the bubble is up, small versions of the four gauges sit under
+  THINKING.
 - While Needle thinks, the line shows its progress and then its reasoning as
   it is generated, and the LED blinks yellow. The LED turns green when the
-  decision lands. The world keeps going while it thinks.
+  decision lands and the stats come back. The world keeps going while it
+  thinks.
 - The footer shows the last decision's number and time.
 - **Tap the header** for the debug screen: layers, model size, free and peak
   RAM, tokens per second, inferences, average and last time, and SD and flash
@@ -224,11 +231,11 @@ The two fine-tuned models aren't downloadable; build them from the sliced
 rung (about 25 minutes each on an M-series Mac). The creature:
 
 ```bash
-.venv/bin/python tools/make_creature4_data.py --n 2400 --out bench/creature4_train.jsonl
+.venv/bin/python tools/make_creature5_data.py --n 3000 --out bench/creature5_train.jsonl
 ```
 
 ```bash
-.venv/bin/python tools/finetune_rung_2bit.py bench/creature4_train.jsonl --base models/needle3-L2.cact --epochs 10 --rank 64 --alpha 128 --out models/needle3-L2-creature4-2bit.cact
+.venv/bin/python tools/finetune_rung_2bit.py bench/creature5_train.jsonl --base models/needle3-L2.cact --epochs 10 --rank 64 --alpha 128 --out models/needle3-L2-creature5-2bit.cact
 ```
 
 The four-action demo and benchmark model:
@@ -256,7 +263,7 @@ can hold both. Prepare the one you want to boot into last.
 The creature:
 
 ```bash
-.venv/bin/python tools/prepare_sd.py models/needle3-L2-creature4-2bit.cact --profile creature --label "creature, 2 layers" --card "/Volumes/NO NAME"
+.venv/bin/python tools/prepare_sd.py models/needle3-L2-creature5-2bit.cact --profile creature --label "creature, 2 layers" --card "/Volumes/NO NAME"
 ```
 
 The four-action demo:
@@ -279,7 +286,7 @@ To change the model without taking the card out, push it over USB. It is
 CRC-checked per 512 B, at 460800 baud, and takes about 5 minutes for 8.6 MB:
 
 ```bash
-.venv/bin/python tools/push_file.py /dev/cu.usbserial-1130 models/needle3-L2-creature4-2bit.cact /sdcard/creature/needle3.cact
+.venv/bin/python tools/push_file.py /dev/cu.usbserial-1130 models/needle3-L2-creature5-2bit.cact /sdcard/creature/needle3.cact
 ```
 
 A model with a different directory needs its own overlay flashed at
@@ -306,13 +313,21 @@ and model file size.
 `/sdcard/creature/` holds a second fine-tune of the same 2-layer 2-bit rung,
 trained on four stats (hunger, energy, curiosity, happiness) and four tools
 (`eat`, `sleep`, `explore`, `play`). The world (`firmware/app/creature.cpp`)
-drifts every second. Now and then something happens: a storm, a butterfly, a
-friend waves. Each action Needle picks runs for 25 seconds and pushes its
-stats back. Then the creature describes itself ("I'm a little hungry, rested,
-very curious and content.") and Needle picks again. The drift rates were
-tuned in simulation (`tools/sim_creature.py`) so its mood moves between
-happy, content and sad rather than sitting at happy. It never chooses by
-rule; every action comes from the model.
+drifts every second. Each action Needle picks runs for 25 seconds and pushes
+its stats back. Then the creature says how it feels, mentioning only what
+stands out ("I'm starving and very curious."), and Needle picks again.
+
+Now and then something happens: a storm rolls in, something smells tasty, a
+butterfly drifts past, a noisy night, a friend waves hello. The creature
+stops what it's doing and says so first: "A friend is waving hello! I'm a
+bit tired." The model was trained to take that into account. A friend means
+play, a tasty smell means eat, a butterfly means explore, and a storm or a
+noisy night means sleep. Being starving or exhausted still comes first.
+Nothing new happens while Needle is thinking.
+
+The drift rates were tuned in simulation (`tools/sim_creature.py --v5`) so
+its mood moves between happy, content and sad. It never chooses by rule;
+every action comes from the model, and the sentence is all it sees.
 
 ## Limitations
 

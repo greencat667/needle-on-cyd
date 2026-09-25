@@ -1,5 +1,6 @@
 // Generated from bench/cases.json and bench/tools.min.json by tools/prepare_sd.py.
 #pragma once
+#include "creature.h"  // EV_* for the creature's cases
 
 static const char kToolsJson[] = "[{\"name\":\"eat\",\"description\":\"Eat food when hungry.\",\"parameters\":{\"type\":\"object\",\"properties\":{},\"required\":[]}},{\"name\":\"sleep\",\"description\":\"Sleep when tired.\",\"parameters\":{\"type\":\"object\",\"properties\":{},\"required\":[]}},{\"name\":\"explore\",\"description\":\"Explore when curious and energetic.\",\"parameters\":{\"type\":\"object\",\"properties\":{},\"required\":[]}},{\"name\":\"rest\",\"description\":\"Rest when energy is low.\",\"parameters\":{\"type\":\"object\",\"properties\":{},\"required\":[]}}]";
 static const char* const kToolNames[] = {"eat", "sleep", "explore", "rest"};
@@ -36,31 +37,38 @@ static const int kBenchN = sizeof(kBench) / sizeof(kBench[0]);
 
 // the creature's four-stat benchmark (tools/make_creature4_data.py)
 static const char kCreatureToolsJson[] = "[{\"name\":\"eat\",\"description\":\"Eat food when hungry.\",\"parameters\":{\"type\":\"object\",\"properties\":{},\"required\":[]}},{\"name\":\"sleep\",\"description\":\"Sleep when tired.\",\"parameters\":{\"type\":\"object\",\"properties\":{},\"required\":[]}},{\"name\":\"explore\",\"description\":\"Explore when curious and energetic.\",\"parameters\":{\"type\":\"object\",\"properties\":{},\"required\":[]}},{\"name\":\"play\",\"description\":\"Play when sad or bored.\",\"parameters\":{\"type\":\"object\",\"properties\":{},\"required\":[]}}]";
-struct CreatureCase { int hunger, energy, curiosity, happiness; const char* expected; };
+// bench/creature5_cases.json (tools/make_creature5_data.py): 20 states, 10 with an event
+struct CreatureCase { int hunger, energy, curiosity, happiness, event; const char* expected; };
 static const CreatureCase kCreatureBench[] = {
-    {95, 60, 20, 50, "eat"},
-    {90, 70, 40, 80, "eat"},
-    {85, 55, 10, 20, "eat"},
-    {100, 65, 30, 60, "eat"},
-    {88, 80, 20, 40, "eat"},
-    {92, 50, 50, 90, "eat"},
-    {10, 5, 40, 50, "sleep"},
-    {15, 10, 20, 80, "sleep"},
-    {5, 30, 10, 60, "sleep"},
-    {20, 3, 70, 50, "sleep"},
-    {12, 25, 25, 20, "sleep"},
-    {8, 12, 90, 70, "sleep"},
-    {10, 90, 95, 50, "explore"},
-    {15, 80, 85, 80, "explore"},
-    {20, 85, 90, 60, "explore"},
-    {5, 95, 80, 45, "explore"},
-    {12, 75, 100, 90, "explore"},
-    {18, 88, 70, 70, "explore"},
-    {10, 60, 20, 10, "play"},
-    {15, 55, 25, 20, "play"},
-    {20, 50, 10, 5, "play"},
-    {5, 65, 15, 25, "play"},
-    {12, 60, 40, 15, "play"},
-    {8, 50, 20, 45, "play"},
+    {95, 60, 20, 50, -1, "eat"},
+    {90, 70, 40, 80, -1, "eat"},
+    {85, 55, 10, 20, -1, "eat"},
+    {100, 65, 30, 60, -1, "eat"},
+    {70, 60, 50, 50, -1, "eat"},
+    {10, 5, 40, 50, -1, "sleep"},
+    {15, 10, 20, 80, -1, "sleep"},
+    {5, 30, 10, 60, -1, "sleep"},
+    {20, 3, 70, 50, -1, "sleep"},
+    {12, 35, 50, 50, -1, "sleep"},
+    {10, 90, 95, 50, -1, "explore"},
+    {15, 80, 85, 80, -1, "explore"},
+    {20, 85, 90, 60, -1, "explore"},
+    {5, 95, 50, 45, -1, "explore"},
+    {12, 60, 100, 90, -1, "explore"},
+    {10, 60, 20, 10, -1, "play"},
+    {15, 55, 25, 20, -1, "play"},
+    {20, 50, 10, 50, -1, "play"},
+    {5, 65, 15, 80, -1, "play"},
+    {12, 60, 40, 50, -1, "play"},
+    {10, 60, 40, 50, EV_FRIEND, "play"},
+    {30, 35, 50, 50, EV_FRIEND, "play"},
+    {90, 60, 40, 50, EV_FRIEND, "eat"},
+    {10, 60, 90, 50, EV_TASTY, "eat"},
+    {20, 60, 40, 50, EV_BUTTERFLY, "explore"},
+    {10, 10, 40, 50, EV_BUTTERFLY, "sleep"},
+    {15, 60, 90, 80, EV_STORM, "sleep"},
+    {10, 60, 40, 20, EV_STORM, "sleep"},
+    {10, 50, 50, 50, EV_NOISY, "sleep"},
+    {40, 80, 90, 50, EV_NOISY, "sleep"},
 };
 static const int kCreatureBenchN = sizeof(kCreatureBench) / sizeof(kCreatureBench[0]);

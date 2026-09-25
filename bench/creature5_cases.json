@@ -1,0 +1,362 @@
+[
+ {
+  "state": {
+   "hunger": 95,
+   "energy": 60,
+   "curiosity": 20,
+   "happiness": 50
+  },
+  "event": null,
+  "expected": [
+   "eat"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 90,
+   "energy": 70,
+   "curiosity": 40,
+   "happiness": 80
+  },
+  "event": null,
+  "expected": [
+   "eat"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 85,
+   "energy": 55,
+   "curiosity": 10,
+   "happiness": 20
+  },
+  "event": null,
+  "expected": [
+   "eat"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 100,
+   "energy": 65,
+   "curiosity": 30,
+   "happiness": 60
+  },
+  "event": null,
+  "expected": [
+   "eat"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 70,
+   "energy": 60,
+   "curiosity": 50,
+   "happiness": 50
+  },
+  "event": null,
+  "expected": [
+   "eat"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 10,
+   "energy": 5,
+   "curiosity": 40,
+   "happiness": 50
+  },
+  "event": null,
+  "expected": [
+   "sleep"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 15,
+   "energy": 10,
+   "curiosity": 20,
+   "happiness": 80
+  },
+  "event": null,
+  "expected": [
+   "sleep"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 5,
+   "energy": 30,
+   "curiosity": 10,
+   "happiness": 60
+  },
+  "event": null,
+  "expected": [
+   "sleep"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 20,
+   "energy": 3,
+   "curiosity": 70,
+   "happiness": 50
+  },
+  "event": null,
+  "expected": [
+   "sleep"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 12,
+   "energy": 35,
+   "curiosity": 50,
+   "happiness": 50
+  },
+  "event": null,
+  "expected": [
+   "sleep"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 10,
+   "energy": 90,
+   "curiosity": 95,
+   "happiness": 50
+  },
+  "event": null,
+  "expected": [
+   "explore"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 15,
+   "energy": 80,
+   "curiosity": 85,
+   "happiness": 80
+  },
+  "event": null,
+  "expected": [
+   "explore"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 20,
+   "energy": 85,
+   "curiosity": 90,
+   "happiness": 60
+  },
+  "event": null,
+  "expected": [
+   "explore"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 5,
+   "energy": 95,
+   "curiosity": 50,
+   "happiness": 45
+  },
+  "event": null,
+  "expected": [
+   "explore"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 12,
+   "energy": 60,
+   "curiosity": 100,
+   "happiness": 90
+  },
+  "event": null,
+  "expected": [
+   "explore"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 10,
+   "energy": 60,
+   "curiosity": 20,
+   "happiness": 10
+  },
+  "event": null,
+  "expected": [
+   "play"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 15,
+   "energy": 55,
+   "curiosity": 25,
+   "happiness": 20
+  },
+  "event": null,
+  "expected": [
+   "play"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 20,
+   "energy": 50,
+   "curiosity": 10,
+   "happiness": 50
+  },
+  "event": null,
+  "expected": [
+   "play"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 5,
+   "energy": 65,
+   "curiosity": 15,
+   "happiness": 80
+  },
+  "event": null,
+  "expected": [
+   "play"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 12,
+   "energy": 60,
+   "curiosity": 40,
+   "happiness": 50
+  },
+  "event": null,
+  "expected": [
+   "play"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 10,
+   "energy": 60,
+   "curiosity": 40,
+   "happiness": 50
+  },
+  "event": "friend",
+  "expected": [
+   "play"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 30,
+   "energy": 35,
+   "curiosity": 50,
+   "happiness": 50
+  },
+  "event": "friend",
+  "expected": [
+   "play"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 90,
+   "energy": 60,
+   "curiosity": 40,
+   "happiness": 50
+  },
+  "event": "friend",
+  "expected": [
+   "eat"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 10,
+   "energy": 60,
+   "curiosity": 90,
+   "happiness": 50
+  },
+  "event": "tasty",
+  "expected": [
+   "eat"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 20,
+   "energy": 60,
+   "curiosity": 40,
+   "happiness": 50
+  },
+  "event": "butterfly",
+  "expected": [
+   "explore"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 10,
+   "energy": 10,
+   "curiosity": 40,
+   "happiness": 50
+  },
+  "event": "butterfly",
+  "expected": [
+   "sleep"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 15,
+   "energy": 60,
+   "curiosity": 90,
+   "happiness": 80
+  },
+  "event": "storm",
+  "expected": [
+   "sleep"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 10,
+   "energy": 60,
+   "curiosity": 40,
+   "happiness": 20
+  },
+  "event": "storm",
+  "expected": [
+   "sleep"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 10,
+   "energy": 50,
+   "curiosity": 50,
+   "happiness": 50
+  },
+  "event": "noisy",
+  "expected": [
+   "sleep"
+  ]
+ },
+ {
+  "state": {
+   "hunger": 40,
+   "energy": 80,
+   "curiosity": 90,
+   "happiness": 50
+  },
+  "event": "noisy",
+  "expected": [
+   "sleep"
+  ]
+ }
+]

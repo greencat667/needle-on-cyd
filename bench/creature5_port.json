@@ -1,0 +1,242 @@
+[
+ {
+  "text": "I'm starving and bored.",
+  "calls": [
+   "eat"
+  ],
+  "reasoning": "\n'starving' -> eat",
+  "correct": true
+ },
+ {
+  "text": "I'm starving, a bit curious and happy.",
+  "calls": [
+   "eat"
+  ],
+  "reasoning": "\n'starving' -> eat",
+  "correct": true
+ },
+ {
+  "text": "I'm starving, bored and sad.",
+  "calls": [
+   "eat"
+  ],
+  "reasoning": "\n'starving' -> eat",
+  "correct": true
+ },
+ {
+  "text": "I'm starving and bored.",
+  "calls": [
+   "eat"
+  ],
+  "reasoning": "\n'starving' -> eat",
+  "correct": true
+ },
+ {
+  "text": "I'm hungry and a bit curious.",
+  "calls": [
+   "eat"
+  ],
+  "reasoning": "\n'hungry' -> eat",
+  "correct": true
+ },
+ {
+  "text": "I'm exhausted and a bit curious.",
+  "calls": [
+   "sleep"
+  ],
+  "reasoning": "\n'exhausted' -> sleep",
+  "correct": true
+ },
+ {
+  "text": "I'm exhausted, bored and happy.",
+  "calls": [
+   "sleep"
+  ],
+  "reasoning": "\n'exhausted' -> sleep",
+  "correct": true
+ },
+ {
+  "text": "I'm tired and bored.",
+  "calls": [
+   "sleep"
+  ],
+  "reasoning": "\n'tired' -> sleep",
+  "correct": true
+ },
+ {
+  "text": "I'm exhausted and very curious.",
+  "calls": [
+   "sleep"
+  ],
+  "reasoning": "\n'exhausted' -> sleep",
+  "correct": true
+ },
+ {
+  "text": "I'm tired and a bit curious.",
+  "calls": [
+   "sleep"
+  ],
+  "reasoning": "\n'tired' -> sleep",
+  "correct": true
+ },
+ {
+  "text": "I'm full of energy and very curious.",
+  "calls": [
+   "explore"
+  ],
+  "reasoning": "\n'very curious' -> explore",
+  "correct": true
+ },
+ {
+  "text": "I'm full of energy, very curious and happy.",
+  "calls": [
+   "explore"
+  ],
+  "reasoning": "\n'very curious' -> explore",
+  "correct": true
+ },
+ {
+  "text": "I'm full of energy and very curious.",
+  "calls": [
+   "explore"
+  ],
+  "reasoning": "\n'very curious' -> explore",
+  "correct": true
+ },
+ {
+  "text": "I'm full of energy and a bit curious.",
+  "calls": [
+   "explore"
+  ],
+  "reasoning": "\n'a bit curious' -> explore",
+  "correct": true
+ },
+ {
+  "text": "I'm very curious and happy.",
+  "calls": [
+   "explore"
+  ],
+  "reasoning": "\n'very curious' -> explore",
+  "correct": true
+ },
+ {
+  "text": "I'm bored and sad.",
+  "calls": [
+   "play"
+  ],
+  "reasoning": "\n'sad' -> play",
+  "correct": true
+ },
+ {
+  "text": "I'm bored and sad.",
+  "calls": [
+   "play"
+  ],
+  "reasoning": "\n'sad' -> play",
+  "correct": true
+ },
+ {
+  "text": "I'm bored.",
+  "calls": [
+   "play"
+  ],
+  "reasoning": "\n'bored' -> play",
+  "correct": true
+ },
+ {
+  "text": "I'm bored and happy.",
+  "calls": [
+   "play"
+  ],
+  "reasoning": "\n'bored' -> play",
+  "correct": true
+ },
+ {
+  "text": "I'm a bit curious.",
+  "calls": [
+   "play"
+  ],
+  "reasoning": "\n'nothing urgent' -> play",
+  "correct": true
+ },
+ {
+  "text": "A friend is waving hello! I'm a bit curious.",
+  "calls": [
+   "play"
+  ],
+  "reasoning": "\n'friend' -> play",
+  "correct": true
+ },
+ {
+  "text": "A friend is waving hello! I'm tired and a bit curious.",
+  "calls": [
+   "play"
+  ],
+  "reasoning": "\n'friend' -> play",
+  "correct": true
+ },
+ {
+  "text": "A friend is waving hello! I'm starving and a bit curious.",
+  "calls": [
+   "eat"
+  ],
+  "reasoning": "\n'starving' -> eat",
+  "correct": true
+ },
+ {
+  "text": "I can smell something tasty! I'm very curious.",
+  "calls": [
+   "eat"
+  ],
+  "reasoning": "\n'something tasty' -> eat",
+  "correct": true
+ },
+ {
+  "text": "A butterfly just drifted past! I'm a bit curious.",
+  "calls": [
+   "explore"
+  ],
+  "reasoning": "\n'butterfly' -> explore",
+  "correct": true
+ },
+ {
+  "text": "A butterfly just drifted past! I'm exhausted and a bit curious.",
+  "calls": [
+   "sleep"
+  ],
+  "reasoning": "\n'exhausted' -> sleep",
+  "correct": true
+ },
+ {
+  "text": "A storm is rolling in! I'm very curious and happy.",
+  "calls": [
+   "sleep"
+  ],
+  "reasoning": "\n'storm' -> sleep",
+  "correct": true
+ },
+ {
+  "text": "A storm is rolling in! I'm a bit curious and sad.",
+  "calls": [
+   "sleep"
+  ],
+  "reasoning": "\n'storm' -> sleep",
+  "correct": true
+ },
+ {
+  "text": "That was a noisy night. I'm a bit curious.",
+  "calls": [
+   "sleep"
+  ],
+  "reasoning": "\n'night night' -> sleep",
+  "correct": true
+ },
+ {
+  "text": "That was a noisy night. I'm full of energy and very curious.",
+  "calls": [
+   "sleep"
+  ],
+  "reasoning": "\n'night night' -> sleep",
+  "correct": true
+ }
+]

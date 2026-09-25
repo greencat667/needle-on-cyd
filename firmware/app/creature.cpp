@@ -13,14 +13,14 @@ static float frand(uint32_t* s) {  // xorshift32 in [0, 1)
 }
 
 void CreatureWorld::tick(float dt) {
-    // background drift. Rates tuned with tools/sim_creature.py (the model's
-    // policy over 12 simulated hours): ~38% happy, 41% content, 21% sad, and
-    // the four actions used about equally. The world keeps going while
-    // Needle thinks, so a slow decision is felt.
+    // background drift. Rates tuned with tools/sim_creature.py --v5 (the
+    // model's policy, events that interrupt it, 12 simulated hours sampled
+    // every second): ~30% happy, 46% content, 23% sad. The world keeps going
+    // while Needle thinks, so a slow decision is felt.
     hunger += 0.25f * dt;
     energy -= 0.22f * dt;
     curiosity += 0.45f * dt;
-    happiness -= 0.43f * dt;
+    happiness -= 0.34f * dt;
     if (action_left > 0) {
         switch (action) {
             case ACT_EAT: hunger -= 4.0f * dt; happiness += 0.5f * dt; break;
@@ -33,18 +33,21 @@ void CreatureWorld::tick(float dt) {
         action_left -= dt;
         if (action_left <= 0) { action_left = 0; actions_done++; }
     }
-    // now and then the world does something
-    if (events && frand(&rng) < 0.012f * dt) {
-        static const struct { const char* what; float dh, de, dc, dp; } E[] = {
+    // now and then the world does something, and the creature stops to react
+    if (events && !quiet && frand(&rng) < 0.012f * dt) {
+        static const struct { const char* what; float dh, de, dc, dp; } E[EV_COUNT] = {
             {"a storm rolls in", 0, -10, -10, -15},
-            {"smells something tasty", 20, 0, 5, 0},
+            {"something smells tasty", 20, 0, 5, 0},
             {"a butterfly drifts past", 0, 5, 25, 10},
             {"a noisy night", 0, -25, 0, -5},
             {"a friend waves hello", 0, 5, 5, 20},
         };
-        const auto& e = E[(int)(frand(&rng) * 5) % 5];
+        const int k = (int)(frand(&rng) * EV_COUNT) % EV_COUNT;
+        const auto& e = E[k];
         hunger += e.dh; energy += e.de; curiosity += e.dc; happiness += e.dp;
         snprintf(event, sizeof(event), "%s", e.what);
+        pending = k;
+        action_left = 0;  // whatever it was doing, it stops and tells Needle
     }
     hunger = clampf(hunger); energy = clampf(energy);
     curiosity = clampf(curiosity); happiness = clampf(happiness);
@@ -61,9 +64,26 @@ CreatureState CreatureWorld::snapshot() const {
 
 const char* happiness_word(int v) { return v <= 30 ? "sad" : v <= 65 ? "content" : "happy"; }
 
-int creature_text(const CreatureState& s, char* out, int cap) {
-    return snprintf(out, cap, "I'm %s, %s, %s and %s.", hunger_word(s.hunger), energy_word(s.energy),
-                    curiosity_word(s.curiosity), happiness_word(s.happiness));
+int creature_text(const CreatureState& s, int event, char* out, int cap) {
+    static const char* const SAY[EV_COUNT] = {
+        "A storm is rolling in!", "I can smell something tasty!", "A butterfly just drifted past!",
+        "That was a noisy night.", "A friend is waving hello!"};
+    // the words worth saying: "a little hungry", "rested" and "content" go unsaid
+    const char* w[4];
+    int n = 0;
+    const char* h = hunger_word(s.hunger);
+    const char* e = energy_word(s.energy);
+    const char* p = happiness_word(s.happiness);
+    if (strcmp(h, "not hungry") && strcmp(h, "a little hungry")) w[n++] = h;
+    if (strcmp(e, "rested")) w[n++] = e;
+    w[n++] = curiosity_word(s.curiosity);
+    if (strcmp(p, "content")) w[n++] = p;
+    int k = 0;
+    if (event >= 0 && event < EV_COUNT) k += snprintf(out + k, cap - k, "%s ", SAY[event]);
+    k += snprintf(out + k, cap - k, "I'm ");
+    for (int i = 0; i < n; i++)
+        k += snprintf(out + k, cap - k, "%s%s", w[i], i == n - 1 ? "." : i == n - 2 ? " and " : ", ");
+    return k;
 }
 
 int creature_action_of(const char* t) {
